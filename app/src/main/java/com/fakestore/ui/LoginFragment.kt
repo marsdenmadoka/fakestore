@@ -1,11 +1,9 @@
-package com.example.fakestore
+package com.fakestore.ui
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import com.fakestore.R
 
 class LoginFragment : Fragment(R.layout.fragment_login){
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".WelcomeFragment">
+    tools:context=".ui.WelcomeFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +21,6 @@
         android:text="username"
         />
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,3 +35,7 @@
         android:text="Ok" />
 
 </LinearLayout>
+
+
+
+

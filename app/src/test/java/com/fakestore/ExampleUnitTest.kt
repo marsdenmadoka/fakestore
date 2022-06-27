@@ -1,4 +1,4 @@
-package com.example.fakestore
+package com.fakestore
 
 import org.junit.Test
 

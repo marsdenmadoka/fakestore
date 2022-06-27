@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.HomeFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +15,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/profile_image"/>
+            android:src="@drawable/profile_image" />
 
         <TextView
             android:layout_width="0dp"
@@ -25,7 +28,8 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_notification">/</ImageView>
+            android:src="@drawable/ic_notification">
+        </ImageView>
 
     </LinearLayout>
 
@@ -46,11 +50,45 @@
             android:background="@color/teal_700" />
 
     </LinearLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerview"
         android:scrollbars="vertical"
-        />
+        tools:listitem="@layout/home_list_item_layout" />
+
 
 </LinearLayout>
+
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".MainActivity">-->
+
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+    <!--    android:id="@+id/recyclerview"-->
+    <!--    android:layout_width="0dp"-->
+    <!--    android:layout_height="0dp"-->
+    <!--    tools:listitem="@layout/recyclerview_item"-->
+    <!--    android:padding="@dimen/big_padding"-->
+    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--    app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--    app:layout_constraintRight_toRightOf="parent"-->
+    <!--    app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--    android:id="@+id/fab"-->
+    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    android:layout_width="wrap_content"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:layout_margin="16dp"-->
+    <!--    android:contentDescription="@string/add_word"/>-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

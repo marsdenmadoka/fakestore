@@ -1,10 +1,10 @@
-package com.example.fakestore
+package com.fakestore.ui
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import com.fakestore.R
+
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
