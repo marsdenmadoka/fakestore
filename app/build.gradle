@@ -2,8 +2,9 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id("androidx.navigation.safeargs.kotlin")
-    //enable us to send data between fragments in a type safe way
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+
 }
 
 
@@ -61,22 +62,29 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
 
     // Lifecycle with view model components
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.2"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-process:2.4.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.2"
+    //implementation "androidx.lifecycle:lifecycle-common-java8:2.4.1"
+//    implementation "androidx.lifecycle:lifecycle-process:2.4.1"
+//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
 
     //live data
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.2"
-    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1"
+//    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1"
 
     //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+   // implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
 
 
     //retrofit
-    implementation "com.squareup.retrofit2:retrofit:2.6.2"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
 
     // Testing
     testImplementation "junit:junit:4.13.2"

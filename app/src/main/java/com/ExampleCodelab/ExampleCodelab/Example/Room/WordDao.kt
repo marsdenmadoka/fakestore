@@ -10,8 +10,9 @@
 ////WordDao is an interface; DAOs must either be interfaces or abstract classes.
 //@Dao
 //interface WordDao {
-//    @Query("SELECT * FROM word_table ORDER BY  word ASC")
-//    fun getAlphabetizedWords(): Flow<List<WordEntity>>// A method to get all the words and have it return a List of Words To observe data changes you will use Flow from kotlinx-coroutines
+//    @Query("SELECT * FROM word_table ORDER BY  word ASC")//A method to get all the words and have it return a List of Words To observe data changes you will use Flow from kotlinx-coroutines
+//    fun getAlphabetizedWords(): Flow<List<WordEntity>>//returning a flow is not yet a long running operation so we don't need a suspend modifier
+//
 //
 //    @Insert(onConflict = OnConflictStrategy.IGNORE)//ignores a new word if it's exactly the same as one already in the list
 //    suspend fun insert(word: WordEntity)

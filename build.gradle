@@ -3,7 +3,9 @@ buildscript {
     repositories {
         google()
     }
+    ext.hilt_version = '2.40'
     dependencies {
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.2"
     }
 }

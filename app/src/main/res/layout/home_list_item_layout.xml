@@ -93,19 +93,19 @@
 
 
                         <ImageView
-                            android:id="@+id/bag"
+                            android:id="@+id/product_image"
                             android:layout_width="match_parent"
                             android:layout_height="250dp"
                             android:layout_marginBottom="10dp"
-                            android:src="@drawable/bag" />
+                            tools:src="@drawable/bag" />
 
                         <TextView
-                            android:id="@+id/txt7"
+                            android:id="@+id/product_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-black"
                             android:includeFontPadding="false"
-                            android:text="Fjaliraveb"
+                            tools:text="Fjaliraveb"
                             android:textAlignment="center"
                             android:textSize="20sp" />
 
@@ -120,18 +120,19 @@
                                 android:src="@drawable/bag" />
 
                             <TextView
+                                android:id="@+id/product_description"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="rating" />
+                                tools:text="description" />
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/txt8"
+                            android:id="@+id/product_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-black"
                             android:includeFontPadding="false"
-                            android:text="$110.5"
+                            tools:text="$110.5"
                             android:textAlignment="center"
                             android:textSize="20sp" />
 
