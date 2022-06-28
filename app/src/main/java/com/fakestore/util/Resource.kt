@@ -1,5 +1,6 @@
 package com.fakestore.util
 
+//a generic class that contains data and status about loading this data
 sealed class Resource <T>(
     val data:T? =null,
     val error:Throwable? = null
