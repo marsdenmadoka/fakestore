@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.*
 inline fun <ResultType, RequestType> networkBoundResource(
     crossinline query: () -> Flow<ResultType>,  //functional argument/parameter responsible for getting data from the database
     crossinline fetch: suspend () -> RequestType,//fetching new data from the  rest api suspend since our Netrequest is suspend type,return request type
-    crossinline saveFetchResult: suspend (RequestType) -> Unit,// fetch fetched data from fetch function and saved it to our sql lite//takes RequestType as argument
+    crossinline saveFetchResult: suspend (RequestType) -> Unit,// get fetched data from fetch function and saved it to our sql lite//takes RequestType as argument
     crossinline  shouldFetch: (ResultType) -> Boolean = { true }  //decide if data from cache is still and weather we have to fetch dat from the web or not
 
 ) = flow {

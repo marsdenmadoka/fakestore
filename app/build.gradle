@@ -5,6 +5,12 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 
+//
+//    id 'com.android.application'
+//    id 'kotlin-android-extensions'
+//    id 'kotlin-android'
+//    id 'kotlin-kapt'
+
 }
 
 
@@ -18,6 +24,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["room.incremental"] = "true"
+            }
+        }
     }
 
     buildTypes {
@@ -46,45 +58,43 @@ android {
 
 dependencies {
     // UI
+    implementation 'androidx.core:core-ktx:1.7.0'
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "com.google.android.material:material:1.6.1"
     implementation "androidx.appcompat:appcompat:1.4.2"
-    implementation "androidx.activity:activity-ktx:1.4.0"
 
 
     //Room components
-    implementation "androidx.room:room-ktx:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
-
+    implementation "androidx.room:room-runtime:2.5.0-alpha02"
+    implementation 'androidx.cardview:cardview:1.0.0'
+    kapt "androidx.room:room-compiler:2.5.0-alpha02"
+    implementation "androidx.room:room-ktx:2.5.0-alpha02"
 
     //navigation component
     implementation 'androidx.navigation:navigation-fragment:2.4.2'
     implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
 
-    // Lifecycle with view model components
-    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.2"
-    //implementation "androidx.lifecycle:lifecycle-common-java8:2.4.1"
-//    implementation "androidx.lifecycle:lifecycle-process:2.4.1"
-//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
-
     //live data
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.2"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
 //    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.1"
 
     //coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
    // implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
 
-    //hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:2.40"
+    kapt "com.google.dagger:hilt-compiler:2.40"
+    //kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.2.0")
 
+    //  implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
 
+    // Glide
+    implementation "com.github.bumptech.glide:glide:4.11.0"
 
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-
 
     // Testing
     testImplementation "junit:junit:4.13.2"

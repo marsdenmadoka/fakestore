@@ -12,6 +12,8 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
 //      view.findViewById<TextView>(R.id.view_username).text = args.username
 //        view.findViewById<TextView>(R.id.text_view_password).text = args.password
 //

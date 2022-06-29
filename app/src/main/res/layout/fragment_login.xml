@@ -3,27 +3,117 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp"
+    android:orientation="vertical"
     tools:context=".ui.LoginFragment">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edit_text_username"
-        android:hint="Usernmae"/>
 
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edit_text_pass"
-        android:hint="password"/>
-
-
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_confirm"
-        android:text="confirm"/>
+        android:layout_marginBottom="16dp"
+        android:text="sucessful logged in"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_username"
+        android:text="username"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_password"
+        android:text="password"
+        />
+
+    <Button
+        android:id="@+id/button_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok" />
+
 </LinearLayout>
+
+
+
+
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
+
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:fitsSystemWindows="true">-->
+
+<!--&lt;!&ndash;        <com.google.android.material.appbar.AppBarLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/appbar"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:fitsSystemWindows="true"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;            <com.google.android.material.appbar.MaterialToolbar&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/toolbar"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="?attr/actionBarSize"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:navigationIcon="@drawable/ic_detail_back_no_circle"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:title="gallery_title" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </com.google.android.material.appbar.AppBarLayout>&ndash;&gt;-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/photo_list"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:clipToPadding="false"-->
+<!--            android:paddingEnd="@dimen/card_side_margin"-->
+<!--            android:paddingStart="@dimen/card_side_margin"-->
+<!--            android:paddingTop="@dimen/gallery_header_margin"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"-->
+<!--            app:spanCount="@integer/grid_columns"-->
+<!--            />-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+<!--</layout>-->
+
+
+
+<!--&lt;!&ndash;<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;    xmlns:tools="http://schemas.android.com/tools"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:orientation="vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:padding="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;    tools:context=".ui.LoginFragment">&ndash;&gt;-->
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/edit_text_username"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="Usernmae"/>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/edit_text_pass"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="password"/>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    <Button&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/button_confirm"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="confirm"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->

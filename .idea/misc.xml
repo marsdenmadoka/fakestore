@@ -3,7 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/garden_tab_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/ic_detail_back.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/ic_detail_back_no_circle.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/ic_detail_share.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/ic_filter_list_24dp.xml" value="0.102" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/ic_my_garden_active.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/ic_my_garden_inactive.xml" value="0.101" />
+        <entry key="app/src/main/res/drawable-v24/ic_photo_library.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/ic_plant_list_active.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/ic_plant_list_inactive.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/ic_plus.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/plant_list_tab_selector.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/tab_icon_color_selector.xml" value="0.102" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_favorite.xml" value="0.2015" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.2015" />
@@ -12,10 +25,11 @@
         <entry key="app/src/main/res/drawable/round.xml" value="0.132" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/cardgridhome_layout.xml" value="0.15818725951261223" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1588785046728972" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home_list_item_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/list_item_photo.xml" value="0.18" />
         <entry key="app/src/main/res/menu/drawer_bottom_nav_menu.xml" value="0.22" />
       </map>
     </option>

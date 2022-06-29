@@ -1,16 +1,19 @@
 package com.fakestore.Network.api
 
-import com.fakestore.Room.Store
+import com.fakestore.Room.ProductEntity
 import retrofit2.http.GET
 
 //retrofit
+//will inject this to our AppModule class
 interface StoreApi {
 
     companion object{
-        const val BASE_URL="https://fakestoreapi.com"
+        const val BASE_URL="https://fakestoreapi.com/"
     }
-    @GET("/products") //"/products?size-20"
-    suspend fun getProducts():List<Store>
+    @GET("products")    // /random_productst?size=20
+
+    suspend fun getProducts():List<ProductEntity>
+
 
 
 }

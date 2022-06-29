@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.HomeFragment">
 
@@ -28,7 +29,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_notification"></ImageView>
+            android:src="@drawable/ic_notification"/>
 
     </LinearLayout>
 
@@ -54,12 +55,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/homerecyclerview"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scrollbars="vertical"-->
+<!--            tools:listitem="@layout/home_list_item_layout" />-->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
+            android:id="@+id/homerecyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            tools:listitem="@layout/home_list_item_layout" />
+            android:clipToPadding="false"
+            android:paddingEnd="@dimen/card_side_margin"
+            android:paddingStart="@dimen/card_side_margin"
+            android:paddingTop="@dimen/gallery_header_margin"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="@integer/grid_columns"
+            tools:listitem="@layout/home_list_item_layout"/>
+
 
         <ProgressBar
             android:id="@+id/progressBar"

@@ -1,27 +1,30 @@
 package com.fakestore.ViewModel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.fakestore.Network.api.StoreApi
-import com.fakestore.Room.ProductEntity
+import androidx.lifecycle.asLiveData
+import com.fakestore.Repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProductViewModel @Inject constructor(
-    api:StoreApi
-): ViewModel() {
+    repository: ProductRepository
+) : ViewModel() {
+    val products = repository.getProducts().asLiveData()/**we don't have to launch a coroutine to collect the flow.since we turned the flow into live data its already handled for us*/
 
-    private val storeLivedata = MutableLiveData<List<ProductEntity>>()
-    val stores  : LiveData<List<ProductEntity>> = storeLivedata
-    init{
-   viewModelScope.launch{
-       val store = api.getProducts()
-       storeLivedata.value =store
-       
-   }
-    }
+
 }
+
+
+
+
+
+//    private val storeLivedata = MutableLiveData<List<ProductEntity>>()
+//    val stores  : LiveData<List<ProductEntity>> = storeLivedata
+//    init{
+//   viewModelScope.launch{
+//       val store = api.getProducts()
+//       storeLivedata.value =store
+//
+//   }
+//    }

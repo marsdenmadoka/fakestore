@@ -24,7 +24,6 @@ object AppModule {
             .baseUrl(StoreApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
     @Provides
     @Singleton
     fun provideStoreApi(retrofit: Retrofit) : StoreApi =
@@ -35,11 +34,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(app:Application) : ProductDatabase =
-        Room.databaseBuilder(app,ProductDatabase::class.java,"Product_Database")
+        Room.databaseBuilder(app,ProductDatabase::class.java,"product_Database")
             .build()
-
-
-
 
 
 }

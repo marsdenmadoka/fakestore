@@ -3,8 +3,10 @@
 //
 //import androidx.lifecycle.LiveData
 //import androidx.lifecycle.ViewModel
+//import androidx.lifecycle.viewModelScope
 //import com.ExampleCodelab.ExampleCodelab.Repository.WordRepository
 //import com.ExampleCodelab.ExampleCodelab.Room.WordEntity
+//import kotlinx.coroutines.launch
 //
 //
 ////A ViewModel holds your app's UI data in a lifecycle-conscious way that survives configuration changes.
