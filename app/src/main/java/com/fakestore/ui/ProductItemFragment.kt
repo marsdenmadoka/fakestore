@@ -24,9 +24,9 @@ class ProductItemFragment : Fragment(R.layout.product_item) {
 
 
         binding.apply {
-//            Glide.with(view)
-//                .load(viewModel.productItemImage)
-//                .into(product_item_image)
+            Glide.with(root)
+                .load(viewModel.productItemImage)
+                .into(product_item_image)
 
             product_item_title.setText(viewModel.productItemName)
             product_item_category.setText(viewModel.productItemCategory)
