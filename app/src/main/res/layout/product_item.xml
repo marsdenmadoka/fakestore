@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:foreground="?android:selectableItemBackground">
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.ProductItemFragment"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_side_margin"
+            android:layout_marginEnd="@dimen/card_side_margin"
+            android:layout_marginBottom="@dimen/card_bottom_margin"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardPreventCornerOverlap="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/product_item_image"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:scaleType="fitCenter"
+                    tools:src="@drawable/bag"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <!--            <ProgressBar-->
+                <!--                android:id="@+id/progress_circular"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                app:layout_constraintBottom_toTopOf="@+id/pokemon_item_title"-->
+                <!--                app:layout_constraintEnd_toEndOf="@+id/pokemon_item_image"-->
+                <!--                app:layout_constraintStart_toStartOf="@+id/pokemon_item_image"-->
+                <!--                app:layout_constraintTop_toTopOf="@+id/pokemon_item_image" />-->
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_shoppping_cart"
+                    app:layout_constraintBottom_toBottomOf="@id/product_item_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.077"
+                    app:layout_constraintRight_toLeftOf="@+id/product_item_image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/product_item_image"
+                    app:layout_constraintVertical_bias="1.0"
+                    />
+
+                <TextView
+                    android:id="@+id/product_item_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="anything i wanta to havee bby"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/product_item_image" />
+
+
+                <TextView
+                    android:id="@+id/product_item_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="anything i wanta to havee bby"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_item_title" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</ScrollView>
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:gravity="center"-->
+<!--    android:orientation="vertical"-->
+<!--    tools:context=".ui.ProductItemFragment">-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:text="sucessful logged in"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat" />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/view_username"-->
+<!--        android:text="username"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/text_view_password"-->
+<!--        android:text="password"-->
+<!--        />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button_ok"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Ok" />-->
+
+<!--</LinearLayout>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/green">-->
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:background="@color/green"-->
+<!--            android:paddingStart="6dp"-->
+<!--            android:paddingTop="6dp"-->
+<!--            android:paddingEnd="6dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:popupTheme="@style/CardView.Light"-->
+<!--            app:titleTextAppearance="@style/ActionBar.nameText"-->
+<!--            app:titleTextColor="@color/black">-->
+
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/search_background"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/searchView"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_margin="5dp"-->
+<!--                    android:background="@null"-->
+<!--                    android:drawableStart="@drawable/ic_baseline_search"-->
+<!--                    android:focusableInTouchMode="true"-->
+<!--                    android:hint="@string/search_pokemons"-->
+<!--                    android:imeOptions="actionSearch"-->
+<!--                    android:singleLine="true"-->
+<!--                    android:textSize="15sp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--        </androidx.appcompat.widget.Toolbar>-->
+<!--        -->
+<!--        -->
+<!--        -->
+
+<!--&lt;!&ndash;        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/swipe_refresh_layout"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintTop_toBottomOf="@+id/toolbar">&ndash;&gt;-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/pokemon_list"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:clipToPadding="false"-->
+<!--                android:paddingStart="@dimen/card_side_margin"-->
+<!--                android:paddingTop="@dimen/card_side_margin"-->
+<!--                android:paddingEnd="@dimen/card_side_margin"-->
+<!--                android:paddingBottom="?actionBarSize"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
+<!--                app:spanCount="2"-->
+<!--                tools:listitem="@layout/list_item_pokemon" />-->
+
+
+<!--&lt;!&ndash;        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>&ndash;&gt;-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_error"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="tap_to_retry"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:visibility="gone"-->
+<!--            tools:visibility="visible"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/progress_circular"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:visibility="gone"-->
+<!--            tools:visibility="visible"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--</layout>-->
+
+
+
+
+

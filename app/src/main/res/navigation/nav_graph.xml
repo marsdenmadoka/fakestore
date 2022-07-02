@@ -11,16 +11,26 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
+            android:id="@+id/action_homeFragment_to_ProductItemFragment"
+            app:destination="@id/ProductItemFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.fakestore.ui.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        android:id="@+id/ProductItemFragment"
+        android:name="com.fakestore.ui.ProductItemFragment"
+        android:label="ProductItem"
+        tools:layout="@layout/product_item" >
+        <argument
+            android:name="ProductItem"
+            app:argType="com.fakestore.Room.ProductEntity"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/hilt_HomeFragment"
+        android:name="com.fakestore.ui.Hilt_HomeFragment"
+        android:label="Hilt_HomeFragment" />
 </navigation>

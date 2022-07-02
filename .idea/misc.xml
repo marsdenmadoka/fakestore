@@ -18,18 +18,21 @@
         <entry key="app/src/main/res/drawable-v24/plant_list_tab_selector.xml" value="0.102" />
         <entry key="app/src/main/res/drawable-v24/tab_icon_color_selector.xml" value="0.102" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search.xml" value="0.1085" />
         <entry key="app/src/main/res/drawable/ic_favorite.xml" value="0.2015" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.2015" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_person24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round.xml" value="0.132" />
+        <entry key="app/src/main/res/drawable/search_background.xml" value="0.1085" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/cardgridhome_layout.xml" value="0.15818725951261223" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home_list_item_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/list_item_photo.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/product_item.xml" value="0.21951219512195122" />
         <entry key="app/src/main/res/menu/drawer_bottom_nav_menu.xml" value="0.22" />
       </map>
     </option>

@@ -5,6 +5,8 @@ import com.fakestore.Network.api.StoreApi
 import com.fakestore.Room.ProductDatabase
 import com.fakestore.util.networkBoundResource
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flatMapConcat
 import javax.inject.Inject
 
 class ProductRepository @Inject constructor(
@@ -12,10 +14,17 @@ class ProductRepository @Inject constructor(
     private val db:ProductDatabase
 ) {
    private val productDao = db.productDao()//we don't need to inject this
+    val searchQuery = MutableStateFlow("")
+
+    private val productsFlow =searchQuery.flatMapConcat {
+        productDao.getAllProducts(it)
+    }
 
     fun getProducts() = networkBoundResource(
         query = {//return list of products
-            productDao.getAllProducts()
+                productsFlow
+
+       //productDao.getAllProducts() //productDao.getAllProducts("")
         },
         fetch={ //fetch product from net
             delay(2000)

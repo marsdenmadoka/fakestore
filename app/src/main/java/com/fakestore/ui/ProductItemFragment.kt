@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.fakestore.R
 
-class LoginFragment : Fragment(R.layout.fragment_login){
+class ProductItemFragment : Fragment(R.layout.product_item){
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

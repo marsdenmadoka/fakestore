@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.fakestore.Room.ProductEntity
 import com.fakestore.databinding.HomeListItemLayoutBinding
 
-class ProductAdapter :
+class ProductAdapter (private val listener: OnItemClickListener):
     ListAdapter<ProductEntity, ProductAdapter.StoreViewHolder>(StoreComparator()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
         val binding =
@@ -25,22 +25,38 @@ class ProductAdapter :
         }
     }
 
-    class StoreViewHolder(private val binding: HomeListItemLayoutBinding) :
+    inner class StoreViewHolder(private val binding: HomeListItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(store: ProductEntity) {
+
+        init {
+            binding.apply {
+                root.setOnClickListener {
+                   val position =adapterPosition
+                   if(position != RecyclerView.NO_POSITION){
+                       val product = getItem(position)
+                       listener.onItemClick(product)
+                   }
+                }
+            }
+        }
+        fun bind(product: ProductEntity) {
             binding.apply {
 
                 //image with glide code here
                 Glide.with(itemView)
-                    .load(store.image)
+                    .load(product.image)
                     .into(productImage)
 
                // productPrice.text = store.price.toString()
-                productPrice.text = store.category
-                productTitle.text = store.title
+                productPrice.text = product.category
+                productTitle.text = product.title
                 //productDescription.text = store.description
             }
         }
+    }
+
+    interface OnItemClickListener{
+        fun onItemClick(product: ProductEntity)
     }
 
     class StoreComparator : DiffUtil.ItemCallback<ProductEntity>() {

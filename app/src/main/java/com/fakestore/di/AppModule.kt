@@ -2,6 +2,7 @@ package com.fakestore.di
 
 import android.app.Application
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.fakestore.Network.api.StoreApi
 import com.fakestore.Room.ProductDatabase
 import dagger.Module
@@ -32,9 +33,10 @@ object AppModule {
 
     //injecting our database
     @Provides
-    @Singleton
+    @Singleton //create one instance of our database
     fun provideDatabase(app:Application) : ProductDatabase =
         Room.databaseBuilder(app,ProductDatabase::class.java,"product_Database")
+            .fallbackToDestructiveMigration()
             .build()
 
 

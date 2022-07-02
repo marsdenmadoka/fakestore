@@ -66,7 +66,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="@dimen/card_side_margin"
             android:layout_marginEnd="@dimen/card_side_margin"
             android:layout_marginBottom="@dimen/card_bottom_margin"
@@ -80,8 +80,7 @@
                 <ImageView
                     android:id="@+id/product_image"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="a11y_plant_item_image"
+                    android:layout_height="150dp"
                     android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -99,6 +98,9 @@
                     android:textAppearance="?attr/textAppearanceListItem"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    android:maxLines="1"
+                    android:maxLength="10"
+                    android:ellipsize="end"
                     app:layout_constraintTop_toBottomOf="@+id/product_image"
                     tools:text="madohhhhhhhhka" />
                 <!-- app:layout_constraintBottom_toBottomOf="parent"-->
@@ -114,6 +116,9 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    android:maxLines="1"
+                    android:maxLength="10"
+                    android:ellipsize="end"
                     app:layout_constraintTop_toBottomOf="@+id/product_title"
                     tools:text="5000000000000000000000000000000000000000000000" />
 
@@ -130,7 +135,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_price"
-                    tools:text="45555555444444444" />
+                    tools:text="455555554444444kkkkkkkkkkkkkk44"
+                    android:maxLines="1"
+                    android:maxLength="10"
+                    android:ellipsize="end"/>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
