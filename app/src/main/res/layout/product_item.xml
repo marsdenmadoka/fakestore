@@ -78,7 +78,7 @@
 
 
                 <TextView
-                    android:id="@+id/product_item_description"
+                    android:id="@+id/product_item_category"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"

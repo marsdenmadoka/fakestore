@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fakestore.R
@@ -14,19 +15,18 @@ import com.fakestore.Room.ProductEntity
 import com.fakestore.ViewModel.ProductViewModel
 import com.fakestore.databinding.FragmentHomeBinding
 import com.fakestore.ui.adapter.ProductAdapter
-import com.fakestore.util.Resource
-import com.fakestore.util.handleApiError
-import com.fakestore.util.onQueryTextChange
-import com.fakestore.util.showSnackbar
+import com.fakestore.util.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_welcome.*
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) ,ProductAdapter.OnItemClickListener{
+class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClickListener {
     private val viewModel: ProductViewModel by viewModels()
 
-
+//STOP DEALING WITH MINORS ISSUES... YOU MUST DEAL WITH LEARNING MAIN CORE CONCEPTS!!!
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         val binding = FragmentHomeBinding.bind(view)
         val productAdapter = ProductAdapter(this)
@@ -42,24 +42,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) ,ProductAdapter.OnItemClic
                 }
 
             }
+
         }
         viewModel.products.observe(viewLifecycleOwner, Observer {
+
+            home()
+            productAdapter.submitList(it.data)
+
             binding.apply {
-
-
-                progressBar.isVisible = it is Resource.Loading && it.data.isNullOrEmpty()
                 when (it) {
+                    is Resource.Loading -> {
+                        progressBar.isVisible = it.data.isNullOrEmpty()
+                    }
                     is Resource.Success -> {
-                        home()
-                        productAdapter.submitList(it.data)
-                        textViewError.isVisible = false
+                        //home()
+                        textViewError.isVisible=false
+                        progressBar.isVisible=false
                     }
                     is Resource.Error -> {
-                        textViewError.isVisible = true
-                        textViewError.text = "No internet connection"
-                        handleApiError(it) { home() }
+                        textViewError.isVisible = it.error !=null && it.data.isNullOrEmpty()
+                        textViewError.text=getString(R.string.could_not_refresh,
+                        it.error?.localizedMessage?:getString(R.string.unknown_error_occurred))
+                       // handleApiError(it) { home() }
                     }
-                }
+                }.exhaustive
             }
         })
 
@@ -69,6 +75,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) ,ProductAdapter.OnItemClic
         searchView.onQueryTextChange {
             viewModel.searchQuery.value = it
         }
+
+
 //        binding.apply {
 //       val search= homeSearchView
 //               val searchView=search.onActionViewExpanded() as SearchView
@@ -79,27 +87,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) ,ProductAdapter.OnItemClic
 //                viewModel.searchQuery.value=it
 //            }
 //        }
+
+
     }
+
 
     override fun onItemClick(product: ProductEntity) {
         //viewModel.onProductSelected(product)
+        val action = HomeFragmentDirections.actionHomeFragmentToProductItemFragment(product)
+        findNavController().navigate(action)
     }
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //            { result ->

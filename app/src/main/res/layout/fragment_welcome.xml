@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.WelcomeFragment">
+    tools:context=".ui.FavoriteItemFragment">
 
     <TextView
         android:layout_width="wrap_content"

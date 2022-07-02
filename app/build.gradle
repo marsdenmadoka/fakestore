@@ -88,8 +88,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.40"
     kapt "com.google.dagger:hilt-compiler:2.40"
     //kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.2.0")
-
-    //  implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
 
     // Glide
     implementation "com.github.bumptech.glide:glide:4.11.0"

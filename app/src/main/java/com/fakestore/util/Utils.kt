@@ -21,14 +21,14 @@ fun View.showSnackbar(
     snackbar.show()
 }
 //error et
-fun Fragment.handleApiError(
-    failure: Resource.Error,
-    retry: (() -> Unit)? = null
-) {
-    when {
-        failure.isNetworkError -> requireView().showSnackbar("please check your internet", retry)
-    }
-}
+//fun Fragment.handleApiError(
+//    failure: Resource.Error<Throwable>,
+//    retry: (() -> Unit)? = null
+//) {
+//    when {
+//         -> requireView().showSnackbar("please check your internet", retry)
+//    }.exhaustive
+//}
 
 //search ext
 inline fun SearchView.onQueryTextChange(crossinline listener:(String)->Unit){
@@ -45,3 +45,6 @@ this.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
 })
 }
 
+ //exhaustive
+val <T> T.exhaustive: T
+get() = this

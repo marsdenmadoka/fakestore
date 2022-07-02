@@ -22,7 +22,7 @@ inline fun <ResultType, RequestType> networkBoundResource(
             saveFetchResult(fetch())
             query().map { Resource.Success(it) } //emit a whole stream of data ||display new data from the db in the ui and wrap it by success- (it) is our data
          }catch (throwable:Throwable){
-             query().map { Resource.Error(true) }//we will still display the cache data if fetch from net failed -(it)is the data
+             query().map { Resource.Error(throwable, it) }//we will still display the cache data if fetch from net failed -(it)is the data
         }
     }else{//if it returns false
         query().map { Resource.Success(it) }//return the cache data without net request

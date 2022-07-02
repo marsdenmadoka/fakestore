@@ -32,7 +32,7 @@
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home_list_item_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/list_item_photo.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/product_item.xml" value="0.21951219512195122" />
+        <entry key="app/src/main/res/layout/product_item.xml" value="0.1" />
         <entry key="app/src/main/res/menu/drawer_bottom_nav_menu.xml" value="0.22" />
       </map>
     </option>

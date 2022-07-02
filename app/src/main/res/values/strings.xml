@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FakeStore</string>
+    <string name="could_not_refresh">Could not refresh: %s</string>
+    <string name="unknown_error_occurred">An unknown error occurred</string>
 </resources>
