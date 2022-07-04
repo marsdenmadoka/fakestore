@@ -25,11 +25,10 @@ class ProductViewModel  @Inject constructor(
     val products = repository.getProducts().asLiveData()/**we don't have to launch a coroutine to collect the flow.since we turned the flow into live data its already handled for us*/
 
 
-    fun onProductSelected(product: ProductEntity) = viewModelScope.launch {
-
-        }
 
 
+
+//    fun onProductSelected(product: ProductEntity) = viewModelScope.launch {   }
 }
 
 

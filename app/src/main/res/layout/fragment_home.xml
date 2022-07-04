@@ -99,12 +99,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/homerecyclerview"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:scrollbars="vertical"-->
-<!--            tools:listitem="@layout/home_list_item_layout" />-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homerecyclerview"
             android:layout_width="match_parent"

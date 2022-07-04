@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/drawable/search_background.xml" value="0.1085" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/cardgridhome_layout.xml" value="0.15818725951261223" />
+        <entry key="app/src/main/res/layout/favourite_items.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25" />

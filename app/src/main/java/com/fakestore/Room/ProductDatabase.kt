@@ -7,11 +7,11 @@ import javax.inject.Inject
 import javax.inject.Provider
 
  //will inject it to hilt
-@Database(entities = [ProductEntity::class], version = 1) //we Must declare all the tables we have (entities = [ProductEntity::class,SingleProduct::class],
+@Database(entities = [ProductEntity::class,CartEntity::class], version = 1) //we Must declare all the tables we have (entities = [ProductEntity::class,SingleProduct::class],
 abstract class ProductDatabase : RoomDatabase() {
 
     abstract fun productDao():ProductDao
-
+    abstract fun cartDao():CartDao
 
 
 //class Callback @Inject constructor(

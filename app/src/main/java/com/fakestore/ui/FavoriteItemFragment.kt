@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.fakestore.R
 
-class FavoriteItemFragment : Fragment(R.layout.fragment_welcome) {
+class FavoriteItemFragment : Fragment(R.layout.favourite_items) {
 
 //private  val args:WelcomeFragmentArgs by navArgs()
 

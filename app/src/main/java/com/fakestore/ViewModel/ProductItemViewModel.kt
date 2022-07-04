@@ -2,11 +2,15 @@ package com.fakestore.ViewModel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.fakestore.Repository.ProductRepository
+import com.fakestore.Room.CartEntity
 import com.fakestore.Room.ProductEntity
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -16,8 +20,9 @@ class ProductItemViewModel @Inject constructor(
     /**we can use the SavedStateHandle to store pieces of information to restore/recreating our ui
      * but also store the navigation arguments we sent over to this screen **/
     private val state:SavedStateHandle,
-    repository: ProductRepository,
+    private val repository: ProductRepository,
 ): ViewModel() {
+
     val product = state.get<ProductEntity>("ProductItem") //key of te argument MUST be the same with that from the navgraph
 
     var productItemName = state.get<String>("productItemName") ?:product?.title ?:""
@@ -39,6 +44,21 @@ class ProductItemViewModel @Inject constructor(
             field=value
             state.set("productItemImage",value)
         }
+
+    fun addToCart(){/**adding our cartItems to our local db*/
+        val newCart= CartEntity(title=productItemName,category=productItemCategory,image=productItemImage)
+        viewModelScope.launch {
+            repository.addToCart(newCart)
+        }
+    }
+
+    /**no need to create CartItemViewModel we can jus use this class*/
+
+   fun getCartItems() {
+        viewModelScope.launch {
+            repository.getCartItems().asLiveData()
+        }
+    }
 
 
 }
