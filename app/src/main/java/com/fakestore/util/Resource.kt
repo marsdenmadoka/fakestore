@@ -11,13 +11,6 @@ sealed class Resource<T>(
     class Loading<T>(data: T? = null) : Resource<T>(data)
     class Error<T>(throwable: Throwable, data: T? = null) : Resource<T>(data, throwable)
 
-//    class Error(
-//        //throwable: ResponseBody, data: T? = nu        ll,
-//        val isNetworkError: Boolean,
-////        val errorCode: Int?,
-////        val errorBody: ResponseBody?
-//    ) : Resource<Nothing>()
-//        //(data, throwable)
 
 
 }

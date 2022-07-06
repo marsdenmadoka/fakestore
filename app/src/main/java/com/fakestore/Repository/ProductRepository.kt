@@ -22,6 +22,7 @@ class ProductRepository @Inject constructor(
 
     private val productsFlow = searchQuery.flatMapLatest {
         productDao.getAllProducts(it)
+
     }
 
     fun getProducts() = networkBoundResource(

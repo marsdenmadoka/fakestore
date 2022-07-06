@@ -8,9 +8,19 @@ import com.fakestore.R
 class FavoriteItemsFragment : Fragment(R.layout.favourite_items) {
 
 //private  val args:WelcomeFragmentArgs by navArgs()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
+    }
+}
+
+
+
+
+
+
 
 
 
@@ -24,6 +34,3 @@ class FavoriteItemsFragment : Fragment(R.layout.favourite_items) {
 //            findNavController().navigate(action)
 //
 //        }
-
-    }
-}

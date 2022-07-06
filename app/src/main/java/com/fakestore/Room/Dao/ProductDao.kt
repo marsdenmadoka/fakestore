@@ -17,10 +17,12 @@ interface ProductDao {
      @Query("DELETE FROM products_table ")
     suspend fun deleteAllProducts() //when we fetch new list of products from api we delete the existing one in our local db and replace them with new ones
 
+   // @Query("SELECT FROM products")
 
 
 
-//    //////
+
+
 //    @Update
 //    suspend fun updateProducts()
 //

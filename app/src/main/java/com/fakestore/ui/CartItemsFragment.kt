@@ -26,7 +26,7 @@ class CartItemsFragment : Fragment(R.layout.cart_items) {
         val cartAdapter = CartAdapter()
 
 
-        viewLifecycleOwner.lifecycleScope.launch{
+        viewLifecycleOwner.lifecycleScope.launch {
             viewModel.getcart.collect {
                 val cart = it ?: return@collect
                 binding.apply {
@@ -41,13 +41,10 @@ class CartItemsFragment : Fragment(R.layout.cart_items) {
             }
         }
 
-//            viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-//
-//            }
-//
+        //viewLifecycleOwner.lifecycleScope.launchWhenStarted { }
+
 
     }
 
-    // }
 
 }

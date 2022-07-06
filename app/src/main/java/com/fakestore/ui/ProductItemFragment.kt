@@ -10,7 +10,6 @@ import com.fakestore.R
 import com.fakestore.ViewModel.ProductItemViewModel
 import com.fakestore.databinding.ProductItemBinding
 import com.fakestore.util.Resource
-import com.fakestore.util.showSnackbar
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.product_item.*

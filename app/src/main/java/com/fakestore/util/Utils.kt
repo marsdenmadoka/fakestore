@@ -17,20 +17,24 @@ this.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        //listener(newText.orEmpty())
-        if(!newText.isNullOrBlank()){
-            listener(newText)
-        }
+        listener(newText.orEmpty())
+        /**if(!newText.isNullOrBlank()){
+          listener(newText)}*/
         return true
     }
 
 })
 }
 
- //exhaustive
+ /**exhaustive*/
 val <T> T.exhaustive: T
 get() = this
 
+
+
+
+
+/**
 fun View.showSnackbar(
     message: String,
     action: (() -> Unit)? = null
@@ -52,3 +56,4 @@ fun View.showSnackbar(
 //         -> requireView().showSnackbar("please check your internet", retry)
 //    }.exhaustive
 //}
+**/

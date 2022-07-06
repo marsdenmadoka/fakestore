@@ -36,13 +36,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                     adapter = productAdapter
                     setHasFixedSize(true)
                 }
-
             }
-
         }
 
         viewModel.products.observe(viewLifecycleOwner) {
-
             home()
             productAdapter.submitList(it.data)
 
@@ -67,10 +64,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                     }
                 }.exhaustive
 
-
             }
         }
-
 
         binding.apply {
             //val searchView = searchItem as SearchView
@@ -81,44 +76,11 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
             }
         }
 
-
     }
-
 
     override fun onItemClick(product: ProductEntity) {
         val action = HomeFragmentDirections.actionHomeFragmentToProductItemFragment(product)
         findNavController().navigate(action)
         //viewModel.onProductSelected(product)
     }
-
-
 }
-
-
-//            { result ->
-//                binding.apply {
-//                    //progressBar.isVisible =
-//                      //  result is Resource.Loading && result.data.isNullOrEmpty()//sow progress bar when resource doesn't contain any data
-//                    // textViewError.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
-//                    //textViewError.text = result.error?.localizedMessage
-//
-//                    //just a snackbar example
-//                    when (result) {
-//                        is Resource.Success->{
-//                            productAdapter.submitList(result.data)
-//                        }
-//                        is Resource.Loading->{
-//
-//                        }
-//                        is Resource.Error -> {
-//                            textViewError.isVisible=true
-//                            textViewError.text = "No internet connection"
-//
-//                            handleApiError(result) { home() }
-//                        }
-//
-//                    }
-
-//            }
-//      }
-
