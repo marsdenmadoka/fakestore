@@ -1,6 +1,6 @@
 package com.fakestore.Network.api
 
-import com.fakestore.Room.Entity.ProductEntity
+import com.fakestore.Room.ProductEntity
 import retrofit2.http.GET
 
 /**retrofit
@@ -14,6 +14,8 @@ interface StoreApi {
     suspend fun getProducts():List<ProductEntity> /** wil call this in the repository **/
 
 
+    @GET("products/products/categories")
+    suspend fun getProductsByCategory():List<ProductEntity>
 }
 
 

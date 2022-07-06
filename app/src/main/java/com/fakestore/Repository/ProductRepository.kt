@@ -2,13 +2,13 @@ package com.fakestore.Repository
 
 import androidx.room.withTransaction
 import com.fakestore.Network.api.StoreApi
-import com.fakestore.Room.Entity.CartEntity
+import com.fakestore.Room.CartEntity
 import com.fakestore.Room.ProductDatabase
 import com.fakestore.util.networkBoundResource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.flatMapLatest
 import javax.inject.Inject
 
 class ProductRepository @Inject constructor(
@@ -20,7 +20,7 @@ class ProductRepository @Inject constructor(
 
     val searchQuery = MutableStateFlow("")
 
-    private val productsFlow = searchQuery.flatMapConcat {
+    private val productsFlow = searchQuery.flatMapLatest {
         productDao.getAllProducts(it)
     }
 

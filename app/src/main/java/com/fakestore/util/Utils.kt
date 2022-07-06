@@ -8,6 +8,7 @@ import com.google.android.material.snackbar.Snackbar
 import javax.xml.transform.ErrorListener
 
 /**EXTENSION FUNCTIONS**/
+
 //search ext
 inline fun SearchView.onQueryTextChange(crossinline listener:(String)->Unit){
 this.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
@@ -16,7 +17,10 @@ this.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        listener(newText.orEmpty())
+        //listener(newText.orEmpty())
+        if(!newText.isNullOrBlank()){
+            listener(newText)
+        }
         return true
     }
 
@@ -26,7 +30,6 @@ this.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
  //exhaustive
 val <T> T.exhaustive: T
 get() = this
-
 
 fun View.showSnackbar(
     message: String,

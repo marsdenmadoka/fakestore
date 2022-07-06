@@ -1,7 +1,7 @@
 package com.fakestore.Room.Dao
 
 import androidx.room.*
-import com.fakestore.Room.Entity.CartEntity
+import com.fakestore.Room.CartEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -2,15 +2,13 @@ package com.fakestore.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fakestore.R
-import com.fakestore.Room.Entity.ProductEntity
+import com.fakestore.Room.ProductEntity
 import com.fakestore.ViewModel.ProductViewModel
 import com.fakestore.databinding.FragmentHomeBinding
 import com.fakestore.ui.adapter.ProductAdapter
@@ -43,7 +41,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
 
         }
 
-        viewModel.products.observe(viewLifecycleOwner, Observer {
+        viewModel.products.observe(viewLifecycleOwner) {
 
             home()
             productAdapter.submitList(it.data)
@@ -68,43 +66,33 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                         // handleApiError(it) { home() }
                     }
                 }.exhaustive
+
+
             }
-        })
-
-
-        val searchItem = view.findViewById<SearchView>(R.id.home_search_view)
-        val searchView = searchItem as SearchView
-       // val searchView = searchItem?. addView(view) as SearchView
-        searchView.onQueryTextChange {
-            viewModel.searchQuery.value = it
         }
 
-//        binding.apply {
-//       val search= homeSearchView
-//            val searchView=search.onActionViewExpanded() as SearchView
-//            searchView
-//            .onQueryTextChange {
-//                //update search query
-//                viewModel.searchQuery.value=it
-//            }
-//        }
+
+        binding.apply {
+            //val searchView = searchItem as SearchView
+            val searchItem = homeSearchView
+            searchItem.onQueryTextChange {
+                /**update search query*/
+                viewModel.searchQuery.value = it
+            }
+        }
 
 
     }
 
 
     override fun onItemClick(product: ProductEntity) {
-        //viewModel.onProductSelected(product)
         val action = HomeFragmentDirections.actionHomeFragmentToProductItemFragment(product)
         findNavController().navigate(action)
+        //viewModel.onProductSelected(product)
     }
 
 
 }
-
-
-
-
 
 
 //            { result ->
