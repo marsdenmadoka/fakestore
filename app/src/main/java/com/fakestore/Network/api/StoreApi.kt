@@ -1,9 +1,7 @@
 package com.fakestore.Network.api
 
-import com.fakestore.Room.ProductEntity
-import retrofit2.http.DELETE
+import com.fakestore.Room.Entity.ProductEntity
 import retrofit2.http.GET
-import retrofit2.http.POST
 
 /**retrofit
 //will inject this to our AppModule class **/

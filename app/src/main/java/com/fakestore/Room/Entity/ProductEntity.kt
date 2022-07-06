@@ -1,7 +1,6 @@
-package com.fakestore.Room
+package com.fakestore.Room.Entity
 
 
-import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey

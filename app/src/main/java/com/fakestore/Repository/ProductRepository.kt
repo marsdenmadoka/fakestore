@@ -2,10 +2,8 @@ package com.fakestore.Repository
 
 import androidx.room.withTransaction
 import com.fakestore.Network.api.StoreApi
-import com.fakestore.Room.CartDao
-import com.fakestore.Room.CartEntity
+import com.fakestore.Room.Entity.CartEntity
 import com.fakestore.Room.ProductDatabase
-import com.fakestore.util.Resource
 import com.fakestore.util.networkBoundResource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -51,7 +49,7 @@ class ProductRepository @Inject constructor(
     }
 
     /**not a suspend function since we didn't call our getAllCart in our Dao as suspend**/
-   fun getCartItems():Flow<List<CartEntity>> = cartDao.getAllCartItems()
+ fun  getCartItems():Flow<List<CartEntity>> = cartDao.getAllCartItems()
     
 }
 

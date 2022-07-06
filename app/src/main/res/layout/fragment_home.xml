@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.fakestore.ui.HomeFragment">
 
@@ -29,7 +29,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_notification"/>
+            android:src="@drawable/ic_notification" />
 
     </LinearLayout>
 
@@ -46,70 +46,109 @@
             android:layout_weight="1" />
 
 
-
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:id="@+id/toolbar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="?attr/actionBarSize"-->
-<!--            android:background="#49bb79"-->
-<!--            android:paddingStart="6dp"-->
-<!--            android:paddingTop="6dp"-->
-<!--            android:paddingEnd="6dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:popupTheme="@style/CardView.Light"-->
-<!--            app:titleTextAppearance="TextAppearance.AppCompat.Widget.ActionBar.Title"-->
-<!--            app:titleTextColor="@color/black">-->
-
-
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@drawable/search_background"-->
-<!--                android:orientation="horizontal">-->
-
-<!--                <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:id="@+id/searchView"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:layout_margin="5dp"-->
-<!--                    android:background="@null"-->
-<!--                    android:drawableStart="@drawable/ic_baseline_search"-->
-<!--                    android:focusableInTouchMode="true"-->
-<!--                    android:hint="search_pokemons"-->
-<!--                    android:imeOptions="actionSearch"-->
-<!--                    android:singleLine="true"-->
-<!--                    android:textSize="15sp"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--        <androidx.appcompat.widget.Toolbar-->
+        <!--            android:id="@+id/toolbar"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="?attr/actionBarSize"-->
+        <!--            android:background="#49bb79"-->
+        <!--            android:paddingStart="6dp"-->
+        <!--            android:paddingTop="6dp"-->
+        <!--            android:paddingEnd="6dp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:popupTheme="@style/CardView.Light"-->
+        <!--            app:titleTextAppearance="TextAppearance.AppCompat.Widget.ActionBar.Title"-->
+        <!--            app:titleTextColor="@color/black">-->
 
 
-<!--        </androidx.appcompat.widget.Toolbar>-->
+        <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:background="@drawable/search_background"-->
+        <!--                android:orientation="horizontal">-->
 
+        <!--                <com.google.android.material.textfield.TextInputEditText-->
+        <!--                    android:id="@+id/searchView"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="30dp"-->
+        <!--                    android:layout_margin="5dp"-->
+        <!--                    android:background="@null"-->
+        <!--                    android:drawableStart="@drawable/ic_baseline_search"-->
+        <!--                    android:focusableInTouchMode="true"-->
+        <!--                    android:hint="search_pokemons"-->
+        <!--                    android:imeOptions="actionSearch"-->
+        <!--                    android:singleLine="true"-->
+        <!--                    android:textSize="15sp"-->
+        <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                    app:layout_constraintStart_toStartOf="parent"-->
+        <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+        <!--        </androidx.appcompat.widget.Toolbar>-->
 
 
     </LinearLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        app:singleLine="false"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all" />
+
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/electronics" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jewelery" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mens_cloth" />
+
+    </com.google.android.material.chip.ChipGroup>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/homerecyclerview"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingStart="@dimen/card_side_margin"
-            android:paddingTop="@dimen/gallery_header_margin"
-            android:paddingEnd="@dimen/card_side_margin"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            app:spanCount="@integer/grid_columns"
-            tools:listitem="@layout/home_list_item_layout" />
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homerecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingStart="@dimen/card_side_margin"
+                android:paddingTop="@dimen/gallery_header_margin"
+                android:paddingEnd="@dimen/card_side_margin"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:spanCount="@integer/grid_columns"
+                tools:listitem="@layout/home_list_item_layout" />
+        </FrameLayout>
 
 
         <ProgressBar
@@ -133,17 +172,17 @@
 
         <TextView
             android:id="@+id/text_view_refresh"
-            android:layout_below="@+id/text_view_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_error"
             android:layout_centerInParent="true"
             android:layout_margin="8dp"
             android:gravity="center_horizontal"
+            android:textColor="@color/purple_700"
+            android:textColorLink="@color/purple_700"
+            android:textSize="50dp"
             android:visibility="invisible"
             tools:text="refresh"
-            android:textSize="50dp"
-            android:textColorLink="@color/purple_700"
-            android:textColor="@color/purple_700"
             tools:visibility="visible" />
 
     </RelativeLayout>

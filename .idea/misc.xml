@@ -27,8 +27,12 @@
         <entry key="app/src/main/res/drawable/search_background.xml" value="0.1085" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/cardgridhome_layout.xml" value="0.15818725951261223" />
-        <entry key="app/src/main/res/layout/favourite_items.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/cart_items.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/cart_row.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/cart_row_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/favourite_item_row.xml" value="0.15818725951261223" />
+        <entry key="app/src/main/res/layout/favourite_items.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17592592592592593" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home_list_item_layout.xml" value="0.25" />

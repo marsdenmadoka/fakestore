@@ -1,4 +1,4 @@
-package com.fakestore.Room
+package com.fakestore.Room.Entity
 
 import android.os.Parcelable
 import androidx.room.Entity

@@ -33,4 +33,9 @@
         android:id="@+id/hilt_HomeFragment"
         android:name="com.fakestore.ui.Hilt_HomeFragment"
         android:label="Hilt_HomeFragment" />
+    <fragment
+        android:id="@+id/cartItems"
+        android:name="com.fakestore.ui.CartItemsFragment"
+        android:label="cart_items"
+        tools:layout="@layout/cart_items" />
 </navigation>

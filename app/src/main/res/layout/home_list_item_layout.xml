@@ -2,8 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,13 +79,12 @@
                 <ImageView
                     android:id="@+id/product_image"
                     android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:scaleType="centerCrop"
+                    android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@drawable/shirt" />
-
+                <!--                    android:scaleType="centerCrop"-->
                 <TextView
                     android:id="@+id/product_title"
                     android:layout_width="0dp"
@@ -113,7 +111,6 @@
                     android:fontFamily="sans-serif-black"
                     android:gravity="center_horizontal"
                     android:textAppearance="?attr/textAppearanceListItem"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:maxLines="1"

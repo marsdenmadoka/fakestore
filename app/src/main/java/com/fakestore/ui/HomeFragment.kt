@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fakestore.R
-import com.fakestore.Room.ProductEntity
+import com.fakestore.Room.Entity.ProductEntity
 import com.fakestore.ViewModel.ProductViewModel
 import com.fakestore.databinding.FragmentHomeBinding
 import com.fakestore.ui.adapter.ProductAdapter
@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClickListener {
     private val viewModel: ProductViewModel by viewModels()
 
-//STOP DEALING WITH MINORS ISSUES... YOU MUST DEAL WITH LEARNING MAIN CORE CONCEPTS!!!
+    //STOP DEALING WITH MINORS ISSUES... YOU MUST DEAL WITH LEARNING MAIN CORE CONCEPTS!!!
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,6 +42,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
             }
 
         }
+
         viewModel.products.observe(viewLifecycleOwner, Observer {
 
             home()
@@ -54,15 +55,17 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                     }
                     is Resource.Success -> {
                         //home()
-                        textViewError.isVisible=false
-                        progressBar.isVisible=false
+                        textViewError.isVisible = false
+                        progressBar.isVisible = false
                     }
                     is Resource.Error -> {
-                        textViewError.isVisible = it.error !=null && it.data.isNullOrEmpty()
-                        textViewError.text=getString(R.string.could_not_refresh,
-                        it.error?.localizedMessage?:getString(R.string.unknown_error_occurred))
-                        progressBar.isVisible=false
-                    // handleApiError(it) { home() }
+                        textViewError.isVisible = it.error != null && it.data.isNullOrEmpty()
+                        textViewError.text = getString(
+                            R.string.could_not_refresh,
+                            it.error?.localizedMessage ?: getString(R.string.unknown_error_occurred)
+                        )
+                        progressBar.isVisible = false
+                        // handleApiError(it) { home() }
                     }
                 }.exhaustive
             }
@@ -71,15 +74,14 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
 
         val searchItem = view.findViewById<SearchView>(R.id.home_search_view)
         val searchView = searchItem as SearchView
+       // val searchView = searchItem?. addView(view) as SearchView
         searchView.onQueryTextChange {
             viewModel.searchQuery.value = it
         }
 
-
 //        binding.apply {
 //       val search= homeSearchView
-//               val searchView=search.onActionViewExpanded() as SearchView
-//
+//            val searchView=search.onActionViewExpanded() as SearchView
 //            searchView
 //            .onQueryTextChange {
 //                //update search query
@@ -99,6 +101,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
 
 
 }
+
+
+
+
 
 
 //            { result ->

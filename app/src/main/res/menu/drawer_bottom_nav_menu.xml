@@ -11,7 +11,7 @@
         android:title="Favorite"
         />
     <item
-        android:id="@+id/welcomeFragment"
+        android:id="@+id/cartItems"
         android:icon="@drawable/ic_shoppping_cart"
         android:title="Cart"
         />

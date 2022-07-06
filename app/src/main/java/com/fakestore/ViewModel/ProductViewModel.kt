@@ -1,18 +1,12 @@
 package com.fakestore.ViewModel
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.fakestore.Repository.ProductRepository
-import com.fakestore.Room.ProductDatabase
-import com.fakestore.Room.ProductEntity
-import dagger.assisted.Assisted
-import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.flatMapConcat
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,6 +20,10 @@ class ProductViewModel  @Inject constructor(
 
 
 
+    /**no need to create CartItemViewModel we can jus use this class*/
+
+    val getcart = repository.getCartItems()
+        .stateIn(viewModelScope, SharingStarted.Lazily,null)
 
 
 //    fun onProductSelected(product: ProductEntity) = viewModelScope.launch {   }

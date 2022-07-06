@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fakestore.Room.ProductEntity
+import com.fakestore.Room.Entity.ProductEntity
 import com.fakestore.databinding.HomeListItemLayoutBinding
 
 class ProductAdapter (private val listener: OnItemClickListener):

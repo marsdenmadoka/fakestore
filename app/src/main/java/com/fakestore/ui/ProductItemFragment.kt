@@ -40,7 +40,7 @@ class ProductItemFragment : Fragment(R.layout.product_item) {
                 try {
                     viewModel.addToCart()
                    // Resource.Success(it)
-                    Snackbar.make(requireView(), "succesful inserted", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(requireView(), "succesfull inserted", Snackbar.LENGTH_LONG).show()
                 }catch (throwable: Throwable){
                     Resource.Error(throwable, it)
                 }

@@ -1,6 +1,7 @@
-package com.fakestore.Room
+package com.fakestore.Room.Dao
 
 import androidx.room.*
+import com.fakestore.Room.Entity.CartEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,7 +13,7 @@ interface CartDao {
 
     //Inserting cart items
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCartItems(product:CartEntity)
+    suspend fun insertCartItems(product: CartEntity)
 
     //deleting cart item
     @Delete

@@ -8,6 +8,26 @@ import com.google.android.material.snackbar.Snackbar
 import javax.xml.transform.ErrorListener
 
 /**EXTENSION FUNCTIONS**/
+//search ext
+inline fun SearchView.onQueryTextChange(crossinline listener:(String)->Unit){
+this.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        listener(newText.orEmpty())
+        return true
+    }
+
+})
+}
+
+ //exhaustive
+val <T> T.exhaustive: T
+get() = this
+
+
 fun View.showSnackbar(
     message: String,
     action: (() -> Unit)? = null
@@ -29,22 +49,3 @@ fun View.showSnackbar(
 //         -> requireView().showSnackbar("please check your internet", retry)
 //    }.exhaustive
 //}
-
-//search ext
-inline fun SearchView.onQueryTextChange(crossinline listener:(String)->Unit){
-this.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        return true
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        listener(newText.orEmpty())
-        return true
-    }
-
-})
-}
-
- //exhaustive
-val <T> T.exhaustive: T
-get() = this
