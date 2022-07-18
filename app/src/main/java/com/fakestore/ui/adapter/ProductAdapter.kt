@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.fakestore.Room.ProductEntity
 import com.fakestore.databinding.HomeListItemLayoutBinding
 
-class ProductAdapter (private val listener: OnItemClickListener):
+class ProductAdapter(private val listener: OnItemClickListener) :
     ListAdapter<ProductEntity, ProductAdapter.StoreViewHolder>(StoreComparator()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
         val binding =
@@ -31,32 +31,40 @@ class ProductAdapter (private val listener: OnItemClickListener):
         init {
             binding.apply {
                 root.setOnClickListener {
-                   val position =adapterPosition
-                   if(position != RecyclerView.NO_POSITION){
-                       val product = getItem(position)
-                       listener.onItemClick(product)
-                   }
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
+                        val product = getItem(position)
+                        listener.onItemClick(product)
+                    }
                 }
+
+//                homeAddToCart.setOnClickListener {
+//                    val position = adapterPosition
+//                    if (position != RecyclerView.NO_POSITION) {
+//                        val cartItem = getItem(position)
+//                        listener.onAddToCartClicked(cartItem)
+//                    }
+//                }
             }
         }
         fun bind(product: ProductEntity) {
             binding.apply {
 
-                //image with glide code here
                 Glide.with(itemView)
                     .load(product.image)
                     .into(productImage)
 
-               // productPrice.text = store.price.toString()
-                productPrice.text = product.category
+                // productPrice.text = store.price.toString()
+                productCategory.text = product.category
                 productTitle.text = product.title
                 //productDescription.text = store.description
             }
         }
     }
 
-    interface OnItemClickListener{
+    interface OnItemClickListener {
         fun onItemClick(product: ProductEntity)
+        // fun onAddToCartClicked()
     }
 
     class StoreComparator : DiffUtil.ItemCallback<ProductEntity>() {

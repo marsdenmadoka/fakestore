@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +9,7 @@
     tools:context="com.fakestore.ui.HomeFragment">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -39,56 +41,48 @@
         android:layout_margin="10dp"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/home_search_view"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#49bb79"
+            android:paddingStart="6dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/CardView.Light"
+            app:titleTextColor="@color/black">
 
 
-        <!--        <androidx.appcompat.widget.Toolbar-->
-        <!--            android:id="@+id/toolbar"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="?attr/actionBarSize"-->
-        <!--            android:background="#49bb79"-->
-        <!--            android:paddingStart="6dp"-->
-        <!--            android:paddingTop="6dp"-->
-        <!--            android:paddingEnd="6dp"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:popupTheme="@style/CardView.Light"-->
-        <!--            app:titleTextAppearance="TextAppearance.AppCompat.Widget.ActionBar.Title"-->
-        <!--            app:titleTextColor="@color/black">-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_background"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/home_search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_margin="5dp"
+                    android:background="@null"
+                    android:drawableStart="@drawable/ic_baseline_search"
+                    android:focusableInTouchMode="true"
+                    android:hint="search_products"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:background="@drawable/search_background"-->
-        <!--                android:orientation="horizontal">-->
-
-        <!--                <com.google.android.material.textfield.TextInputEditText-->
-        <!--                    android:id="@+id/searchView"-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="30dp"-->
-        <!--                    android:layout_margin="5dp"-->
-        <!--                    android:background="@null"-->
-        <!--                    android:drawableStart="@drawable/ic_baseline_search"-->
-        <!--                    android:focusableInTouchMode="true"-->
-        <!--                    android:hint="search_pokemons"-->
-        <!--                    android:imeOptions="actionSearch"-->
-        <!--                    android:singleLine="true"-->
-        <!--                    android:textSize="15sp"-->
-        <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-        <!--                    app:layout_constraintStart_toStartOf="parent"-->
-        <!--                    app:layout_constraintTop_toTopOf="parent" />-->
-
-        <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-        <!--        </androidx.appcompat.widget.Toolbar>-->
+        </androidx.appcompat.widget.Toolbar>
 
 
     </LinearLayout>
@@ -103,6 +97,7 @@
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/AllCategories"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,18 +105,21 @@
 
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/electronicsCategory"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/electronics" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/jewelery"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/jewelery" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/menscloth"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -164,7 +162,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center_horizontal"
             android:visibility="invisible"
             tools:text="Error message"
@@ -186,37 +187,145 @@
             tools:visibility="visible" />
 
     </RelativeLayout>
-
-
 </LinearLayout>
 
 
-    <!--<androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--tools:context=".MainActivity">-->
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    tools:context="com.fakestore.ui.HomeFragment">-->
 
-    <!--<androidx.recyclerview.widget.RecyclerView-->
-    <!--    android:id="@+id/recyclerview"-->
-    <!--    android:layout_width="0dp"-->
-    <!--    android:layout_height="0dp"-->
-    <!--    tools:listitem="@layout/recyclerview_item"-->
-    <!--    android:padding="@dimen/big_padding"-->
-    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--    app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--    app:layout_constraintRight_toRightOf="parent"-->
-    <!--    app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView3"-->
+    <!--        android:layout_width="50dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_margin="15dp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/profile_image"-->
+    <!--        tools:ignore="ContentDescription" />-->
 
-    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
-    <!--    android:id="@+id/fab"-->
-    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--    android:layout_width="wrap_content"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    android:layout_margin="16dp"-->
-    <!--    android:contentDescription="@string/add_word"/>-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="15dp"-->
+    <!--        android:text="hello name"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/imageView3"-->
+    <!--        app:layout_constraintLeft_toRightOf="@+id/imageView3"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/imageView3"-->
+    <!--        tools:ignore="HardcodedText" />-->
+
+    <!--    <ImageView-->
+    <!--        android:layout_width="30dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:src="@drawable/ic_notification"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/textView"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/textView"-->
+    <!--        tools:ignore="ContentDescription" />-->
+
+
+    <!--    <androidx.appcompat.widget.SearchView-->
+    <!--        android:id="@+id/home_search_view"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        app:layout_constraintDimensionRatio="7:1"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/imageView3" />-->
+
+    <!--    <ImageView-->
+    <!--        android:layout_width="50dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginEnd="1dp"-->
+    <!--        android:src="@drawable/menu"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/home_search_view"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/home_search_view"-->
+    <!--        tools:ignore="ContentDescription" />-->
+
+
+    <!--    <com.google.android.material.chip.ChipGroup-->
+    <!--        android:id="@+id/chip_chip_group"-->
+    <!--        style="@style/Widget.MaterialComponents.Chip.Filter"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:layout_marginTop="3dp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/homerecyclerview"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/home_search_view"-->
+    <!--        app:singleLine="false"-->
+    <!--        app:singleSelection="true">-->
+
+    <!--        <com.google.android.material.chip.Chip-->
+    <!--            android:id="@+id/AllCategories"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/all" />-->
+
+    <!--        <com.google.android.material.chip.Chip-->
+    <!--            android:id="@+id/electronicsCategory"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/electronics" />-->
+
+    <!--        <com.google.android.material.chip.Chip-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/jewelery" />-->
+
+    <!--        <com.google.android.material.chip.Chip-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/mens_cloth" />-->
+
+    <!--    </com.google.android.material.chip.ChipGroup>-->
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/homerecyclerview"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="5dp"-->
+    <!--        android:clipToPadding="false"-->
+    <!--        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/chip_chip_group"-->
+    <!--        app:spanCount="2"-->
+    <!--        tools:listitem="@layout/home_list_item_layout" />-->
+
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/progressBar"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:foregroundGravity="center_horizontal"-->
+    <!--        android:visibility="invisible"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:visibility="visible"-->
+
+    <!--        />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/text_view_error"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:layout_margin="8dp"-->
+    <!--        android:gravity="center_horizontal"-->
+    <!--        android:visibility="invisible"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:text="Error message"-->
+    <!--        tools:visibility="visible" />-->
 
     <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+

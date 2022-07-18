@@ -5,8 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-
-
 @Entity(tableName = "cartItems")
 @Parcelize
 data class CartEntity(
@@ -15,6 +13,4 @@ data class CartEntity(
     //val price: Number,
     val category: String,
     val image: String
-):Parcelable {
-
-}
+): Parcelable

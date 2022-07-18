@@ -1,11 +1,10 @@
 package com.fakestore.util
-
 import kotlinx.coroutines.flow.*
 
 /**a helper class/function that coordinates between the db and restApi**/
-
 /**Emits the sealed class Resources instances
 //HigherOrderFunction */
+
 inline fun <ResultType, RequestType> networkBoundResource(
     crossinline query: () -> Flow<ResultType>,  /**functional argument/parameter responsible for getting data from the local database**/
     crossinline fetch: suspend () -> RequestType, /**fetching new data from the  rest api suspend since our NetRequest is suspend type,return request type**/

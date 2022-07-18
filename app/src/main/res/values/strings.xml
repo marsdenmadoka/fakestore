@@ -6,4 +6,6 @@
     <string name="electronics">electronics</string>
     <string name="jewelery">jewelery</string>
     <string name="mens_cloth">mens cloth</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

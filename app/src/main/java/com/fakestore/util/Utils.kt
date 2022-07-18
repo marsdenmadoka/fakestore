@@ -2,33 +2,37 @@ package com.fakestore.util
 
 import android.view.View
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
-import javax.xml.transform.ErrorListener
 
 /**EXTENSION FUNCTIONS**/
 
 //search ext
-inline fun SearchView.onQueryTextChange(crossinline listener:(String)->Unit){
-this.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        return true
-    }
+inline fun SearchView.onQueryTextChange(crossinline listener: (String) -> Unit) {
+    this.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        override fun onQueryTextSubmit(query: String?): Boolean {
+            return true
+        }
+        override fun onQueryTextChange(newText: String?): Boolean {
+            listener(newText.orEmpty())
+            /**if(!newText.isNullOrBlank()){
+            listener(newText)}*/
+            return true
+        }
 
-    override fun onQueryTextChange(newText: String?): Boolean {
-        listener(newText.orEmpty())
-        /**if(!newText.isNullOrBlank()){
-          listener(newText)}*/
-        return true
-    }
-
-})
+    })
 }
 
- /**exhaustive*/
+fun View.enable(enabled: Boolean) {
+    isEnabled = enabled
+    alpha = if (enabled) 1f else 0.5f //playing with opacity of our view/button
+}
+
+fun View.visible(isVisible: Boolean) {
+    visibility = if (isVisible) View.VISIBLE else View.GONE
+}
+
+/**exhaustive*/
 val <T> T.exhaustive: T
-get() = this
+    get() = this
 
 
 
@@ -36,16 +40,16 @@ get() = this
 
 /**
 fun View.showSnackbar(
-    message: String,
-    action: (() -> Unit)? = null
-    //duration: Int = Snackbar.LENGTH_LONG, //  view: View = requireView(),
+message: String,
+action: (() -> Unit)? = null
+//duration: Int = Snackbar.LENGTH_LONG, //  view: View = requireView(),
 ) {
-    val snackbar = Snackbar.make(this, message, Snackbar.LENGTH_LONG)
-    //retry
-    action?.let {
-        snackbar.setAction("retry") { it() }
-    }
-    snackbar.show()
+val snackbar = Snackbar.make(this, message, Snackbar.LENGTH_LONG)
+//retry
+action?.let {
+snackbar.setAction("retry") { it() }
+}
+snackbar.show()
 }
 //error et
 //fun Fragment.handleApiError(
@@ -56,4 +60,4 @@ fun View.showSnackbar(
 //         -> requireView().showSnackbar("please check your internet", retry)
 //    }.exhaustive
 //}
-**/
+ **/

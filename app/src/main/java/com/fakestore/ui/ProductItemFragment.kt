@@ -1,6 +1,5 @@
 package com.fakestore.ui
 
-import android.content.ClipData
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -13,7 +12,6 @@ import com.fakestore.util.Resource
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.product_item.*
-import kotlin.math.log
 
 @AndroidEntryPoint
 class ProductItemFragment : Fragment(R.layout.product_item) {
@@ -31,8 +29,8 @@ class ProductItemFragment : Fragment(R.layout.product_item) {
                 .load(viewModel.productItemImage)
                 .into(product_item_image)
 
-            product_item_title.setText(viewModel.productItemName)
-            product_item_category.setText(viewModel.productItemCategory)
+            product_item_title.text = viewModel.productItemName
+            product_item_category.text = viewModel.productItemCategory
 
 
             cart_icon.setOnClickListener {

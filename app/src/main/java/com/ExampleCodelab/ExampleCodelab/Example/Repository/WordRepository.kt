@@ -6,7 +6,14 @@
 //import kotlinx.coroutines.flow.Flow
 ///**we build the room first then the repository and later the view model
 //Declares the DAO as a private property in the constructor. Pass in the DAO  instead of the whole database, since the DAO contains all the read/write methods for the database.
-//**/
+//
+/**
+*Repositoy combines data from network and database 
+** Repository modules handle data operations
+*
+*They provide a clean API so that the rest of the app can retrieve this data easily
+**Repositories is a mediators between different data  sources
+***/
 //class WordRepository(private val wordDao: WordDao) {
 //
 //    // Room executes all queries on a separate thread. Observed Flow will notify the observer when the data has changed.
@@ -22,5 +29,6 @@
 //    }
 //}
 //
+
 ////Why use a Repository? //A Repository manages queries and allows you to use multiple backends.
 ////the Repository implements the logic for deciding whether to fetch data from a network or use results cached in a local database.

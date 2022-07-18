@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--    //container for  our fragment its our NavHost-->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,15 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:id="@+id/nav_host_fragment"
+        android:layout_above="@id/bottom_nav"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"
-        android:layout_above="@id/bottom_nav"
 
         />
     <!--        associate the navHost with the NavGraph-->
@@ -40,3 +38,44 @@
     <!--        />-->
 
 </RelativeLayout>
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".MainActivity">-->
+
+
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/nav_host_fragment"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/bottom_nav"-->
+<!--        app:navGraph="@navigation/nav_graph" />-->
+<!--    &lt;!&ndash;        associate the navHost with the NavGraph&ndash;&gt;-->
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:fitsSystemWindows="false"-->
+<!--        app:menu="@menu/drawer_bottom_nav_menu"-->
+<!--        android:id="@+id/bottom_nav"-->
+
+<!--        />-->
+
+<!--    &lt;!&ndash;    <androidx.appcompat.widget.Toolbar&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:id="@+id/toolbar"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:background="@color/design_default_color_primary"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"&ndash;&gt;-->
+<!--    &lt;!&ndash;        />&ndash;&gt;-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+

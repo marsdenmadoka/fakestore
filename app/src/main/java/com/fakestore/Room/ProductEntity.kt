@@ -10,12 +10,10 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class ProductEntity(
 //    @PrimaryKey(autoGenerate = true) val id: Number,
-    @PrimaryKey(autoGenerate = true)  val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     val title: String,
     //val price: Number,
     val category: String,
     val description: String,
     val image: String
-):Parcelable{
-
-}
+) : Parcelable

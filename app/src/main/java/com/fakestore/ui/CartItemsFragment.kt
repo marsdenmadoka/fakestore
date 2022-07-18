@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class CartItemsFragment : Fragment(R.layout.cart_items) {
     private val viewModel: ProductViewModel by viewModels()
-
+//N/B we always collect a flow and for livedata we observe it
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -26,7 +26,7 @@ class CartItemsFragment : Fragment(R.layout.cart_items) {
         val cartAdapter = CartAdapter()
 
 
-        viewLifecycleOwner.lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {//collecting a flow 
             viewModel.getcart.collect {
                 val cart = it ?: return@collect
                 binding.apply {
@@ -39,9 +39,7 @@ class CartItemsFragment : Fragment(R.layout.cart_items) {
                 cartAdapter.submitList(cart)
                 // cartviewNoCart.isvisible=cart.isEmpty()
             }
-        }
-
-        //viewLifecycleOwner.lifecycleScope.launchWhenStarted { }
+        } //viewLifecycleOwner.lifecycleScope.launchWhenStarted { }
 
 
     }

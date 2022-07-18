@@ -12,8 +12,11 @@ import com.fakestore.Room.ProductEntity
 import com.fakestore.ViewModel.ProductViewModel
 import com.fakestore.databinding.FragmentHomeBinding
 import com.fakestore.ui.adapter.ProductAdapter
-import com.fakestore.util.*
+import com.fakestore.util.Resource
+import com.fakestore.util.exhaustive
+import com.fakestore.util.onQueryTextChange
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClickListener {
@@ -38,20 +41,21 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                 }
             }
         }
-
         viewModel.products.observe(viewLifecycleOwner) {
+
             home()
             productAdapter.submitList(it.data)
-
+            AllCategories.isChecked=true
             binding.apply {
                 when (it) {
                     is Resource.Loading -> {
                         progressBar.isVisible = it.data.isNullOrEmpty()
+
                     }
                     is Resource.Success -> {
-                        //home()
                         textViewError.isVisible = false
                         progressBar.isVisible = false
+                        // AllCategories.isChecked=true
                     }
                     is Resource.Error -> {
                         textViewError.isVisible = it.error != null && it.data.isNullOrEmpty()
@@ -64,15 +68,31 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                     }
                 }.exhaustive
 
+                electronicsCategory.setOnClickListener { res ->
+                    //viewModel.getByElectronicsCategory()
+                    productAdapter.submitList(it.data?.filter { it.category == "electronics" })
+                }
+                jewelery.setOnClickListener { res ->
+                    //viewModel.getByElectronicsCategory()
+                    productAdapter.submitList(it.data?.filter { it.category == "jewelery" })
+                }
+
+                menscloth.setOnClickListener { res ->
+                    //viewModel.getByElectronicsCategory()
+                    productAdapter.submitList(it.data?.filter { it.category == "men's clothing" })
+                }
+
             }
         }
 
         binding.apply {
-            //val searchView = searchItem as SearchView
-            val searchItem = homeSearchView
-            searchItem.onQueryTextChange {
+            val searchView = homeSearchView
+            searchView.onQueryTextChange {
                 /**update search query*/
                 viewModel.searchQuery.value = it
+                //if (it.isNullOrBlank() ){
+                //    textViewError.text = "no search results found"
+                //  }
             }
         }
 
@@ -81,6 +101,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
     override fun onItemClick(product: ProductEntity) {
         val action = HomeFragmentDirections.actionHomeFragmentToProductItemFragment(product)
         findNavController().navigate(action)
-        //viewModel.onProductSelected(product)
+        // viewModel.onSingleProductClicked(product)
     }
+
+
 }

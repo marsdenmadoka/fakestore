@@ -13,14 +13,15 @@ class CartAdapter : ListAdapter<CartEntity, CartAdapter.CartViewHolder>(CartComp
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        val binding = CartRowLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding =
+            CartRowLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-     return CartViewHolder(binding)
+        return CartViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val currentItem = getItem(position)
-        if(currentItem != null){
+        if (currentItem != null) {
             holder.bind(currentItem)
         }
 
@@ -47,11 +48,12 @@ class CartAdapter : ListAdapter<CartEntity, CartAdapter.CartViewHolder>(CartComp
 
 
     class CartComparator : DiffUtil.ItemCallback<CartEntity>() {
-        override fun areItemsTheSame(oldItem: CartEntity, newItem: CartEntity)=
+        override fun areItemsTheSame(oldItem: CartEntity, newItem: CartEntity) =
 
             oldItem.id == newItem.id
+
         override fun areContentsTheSame(oldItem: CartEntity, newItem: CartEntity) =
-           oldItem == newItem
+            oldItem == newItem
 
 
     }

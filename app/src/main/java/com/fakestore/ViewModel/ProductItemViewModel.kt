@@ -14,7 +14,7 @@ import javax.inject.Inject
 //displaying a single product
 @HiltViewModel
 class ProductItemViewModel @Inject constructor(
-    /**we can use the SavedStateHandle to store pieces of information to restore/recreating our ui
+    /**we can use the SavedStateHandle to store little pieces of information to restore/recreating our ui
      * but also store the navigation arguments we sent over to this screen **/
     private val state:SavedStateHandle,
     private val repository: ProductRepository,
@@ -23,7 +23,7 @@ class ProductItemViewModel @Inject constructor(
     val product = state.get<ProductEntity>("ProductItem") //key of te argument MUST be the same with that from the navgraph
 
     var productItemName = state.get<String>("productItemName") ?:product?.title ?:""
-    set(value) {
+    set(value) { //storing it in a save instance state
         field=value
         state.set("productItemName",value)
     }
@@ -44,8 +44,17 @@ class ProductItemViewModel @Inject constructor(
 
     fun addToCart(){/**adding our cartItems to our local db*/
         val newCart= CartEntity(title=productItemName,category=productItemCategory,image=productItemImage)
+
+        //**check if the cart exist
+
         viewModelScope.launch {
             repository.addToCart(newCart)
+
+//            if(newCart.id == newCart.id){
+//            }else{
+//                repository.addToCart(newCart)
+//            }
+
         }
     }
 
