@@ -1,7 +1,8 @@
-package com.fakestore
+package com.fakestore.ui.Auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.fakestore.R
 import dagger.hilt.android.AndroidEntryPoint
 
 //will add our auth nav graph and host fragment
