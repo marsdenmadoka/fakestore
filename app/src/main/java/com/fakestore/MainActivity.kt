@@ -7,6 +7,9 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import com.fakestore.datastore.PreferenceDataStore
+import com.fakestore.ui.Auth.AuthActivity
+import com.fakestore.ui.Home.HomeActivity
+import com.fakestore.util.startNewActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,10 +23,10 @@ class MainActivity : AppCompatActivity() {
          val userPreferences = PreferenceDataStore(this)
 
         userPreferences.accessToken.asLiveData().observe(this, Observer { //get auth token from preference Mananger as a livedata and oserver it
-        Toast.makeText(this,it ?: "Token is Null",Toast.LENGTH_LONG).show()
-          //  val activity = if (it == null) AuthActivity::class.java else HomeActivity::class.java//check if the acess token is laready saved i.e if the used is already logged in
-            //startNewActivity(activity)
-            startActivity(Intent(this, AuthActivity::class.java))
+        //Toast.makeText(this,it ?: "Token is Null",Toast.LENGTH_LONG).show()
+            val activity = if (it == null) AuthActivity::class.java else HomeActivity::class.java//check if the acess token is laready saved i.e if the used is already logged in
+            startNewActivity(activity)
+            //startActivity(Intent(this, AuthActivity::class.java))
         })
 
         //finish()

@@ -18,10 +18,10 @@
         android:theme="@style/Theme.FakeStore"
         tools:targetApi="31">
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.Home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".AuthActivity"
+            android:name=".ui.Auth.AuthActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

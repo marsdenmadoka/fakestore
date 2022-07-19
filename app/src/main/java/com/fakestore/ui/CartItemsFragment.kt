@@ -39,7 +39,7 @@ class CartItemsFragment : Fragment(R.layout.cart_items) {
                 cartAdapter.submitList(cart)
                 // cartviewNoCart.isvisible=cart.isEmpty()
             }
-        } //viewLifecycleOwner.lifecycleScope.launchWhenStarted { }
+        }
 
 
     }
