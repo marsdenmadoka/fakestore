@@ -7,6 +7,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.fakestore.R
 import com.fakestore.ViewModel.AuthViewModel.AuthViewModel
@@ -15,6 +16,7 @@ import com.fakestore.util.Resource
 import com.fakestore.util.enable
 import com.fakestore.util.visible
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -34,6 +36,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
           //  binding.loginProgressbar.visible(it is Resource.Loading)
             when(it) {
                 is Resource.Success ->{
+                    lifecycleScope.launch {
+                        viewModel.saveAccessTokens(
+                            it.data?.token!!
+                        )
+                    }
                    Toast.makeText(requireContext(),it.toString(),Toast.LENGTH_LONG).show()
                 }
                 is Resource.Error ->{

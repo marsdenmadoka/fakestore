@@ -37,6 +37,7 @@ class ProductRepository @Inject constructor(
         },
         fetch = {
             /**fetch product from net**/
+
             delay(2000)
             // api.getProductsByCategory()
             api.getProducts()

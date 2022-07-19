@@ -1,4 +1,4 @@
-package com.fakestore.ui.Auth
+package com.fakestore
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

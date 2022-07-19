@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.*
 /**Emits the sealed class Resources instances
 //HigherOrderFunction */
 
-inline fun <ResultType, RequestType> networkBoundResource(
+inline fun <ResultType, RequestType> networkBoundResource( //building our own flow using flow builder
     crossinline query: () -> Flow<ResultType>,  /**functional argument/parameter responsible for getting data from the local database**/
     crossinline fetch: suspend () -> RequestType, /**fetching new data from the  rest api suspend since our NetRequest is suspend type,return request type**/
     crossinline saveFetchResult: suspend (RequestType) -> Unit, /**get fetched data from fetch function and saved it to our sql lite//takes RequestType as argument**/
@@ -32,5 +32,6 @@ inline fun <ResultType, RequestType> networkBoundResource(
         } else {//if it returns false
             query().map { Resource.Success(it) }/**return the cache data without net request*/
         }
+    while (true)
     emitAll(flow)//emit whethever comes through the mapped queries
 }

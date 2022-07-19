@@ -30,8 +30,8 @@ class ProductViewModel @Inject constructor(
     .stateIn(viewModelScope, SharingStarted.Lazily, null)*/
 
     fun getByElectronicsCategory() {
-        viewModelScope.launch {
-            products.observeForever {
+        viewModelScope.launch { //this is wrong
+            products.observeForever {//your not supposed to observe in the view model
                 it.data?.filter { result ->
                     result.category == "electronics"
                 }
