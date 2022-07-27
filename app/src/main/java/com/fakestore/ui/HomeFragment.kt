@@ -5,10 +5,12 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fakestore.R
 import com.fakestore.Room.ProductEntity
+import com.fakestore.ViewModel.ProductItemViewModel
 import com.fakestore.ViewModel.ProductViewModel
 import com.fakestore.databinding.FragmentHomeBinding
 import com.fakestore.ui.adapter.ProductAdapter
@@ -21,8 +23,8 @@ import kotlinx.android.synthetic.main.fragment_home.*
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClickListener {
     private val viewModel: ProductViewModel by viewModels()
-
-    //STOP DEALING WITH MINORS ISSUES... YOU MUST DEAL WITH LEARNING MAIN CORE CONCEPTS!!!
+    private val itemViewModel : ProductItemViewModel by viewModels()
+    private lateinit var binding: FragmentHomeBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -31,8 +33,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
         val productAdapter = ProductAdapter(this)
 
 
+        viewModel.getUser()
         fun home() {
-
             binding.apply {
                 homerecyclerview.apply {
                     layoutManager = GridLayoutManager(requireContext(), 2)
@@ -42,10 +44,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
             }
         }
         viewModel.products.observe(viewLifecycleOwner) {
-
             home()
             productAdapter.submitList(it.data)
-            AllCategories.isChecked=true
+            AllCategories.isChecked = true
             binding.apply {
                 when (it) {
                     is Resource.Loading -> {
@@ -53,13 +54,14 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
 
                     }
                     is Resource.Success -> {
-                        textViewError.isVisible = false
+
+                        text_view_error.isVisible = false
                         progressBar.isVisible = false
                         // AllCategories.isChecked=true
                     }
                     is Resource.Error -> {
-                        textViewError.isVisible = it.error != null && it.data.isNullOrEmpty()
-                        textViewError.text = getString(
+                        text_view_error.isVisible = it.error != null && it.data.isNullOrEmpty()
+                        text_view_error.text = getString(
                             R.string.could_not_refresh,
                             it.error?.localizedMessage ?: getString(R.string.unknown_error_occurred)
                         )
@@ -67,42 +69,60 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                         // handleApiError(it) { home() }
                     }
                 }.exhaustive
-
-                electronicsCategory.setOnClickListener { res ->
-                    //viewModel.getByElectronicsCategory()
-                    productAdapter.submitList(it.data?.filter { it.category == "electronics" })
-                }
-                jewelery.setOnClickListener { res ->
-                    //viewModel.getByElectronicsCategory()
-                    productAdapter.submitList(it.data?.filter { it.category == "jewelery" })
-                }
-
-                menscloth.setOnClickListener { res ->
-                    //viewModel.getByElectronicsCategory()
-                    productAdapter.submitList(it.data?.filter { it.category == "men's clothing" })
-                }
-
+            }
+            /** not the right to do this fetch categories from view model*/
+            electronicsCategory.setOnClickListener { res ->
+                //viewModel.getByElectronicsCategory()
+                productAdapter.submitList(it.data?.filter { it.category == "electronics" })
+            }
+            jewelery.setOnClickListener { res ->
+                productAdapter.submitList(it.data?.filter { it.category == "jewelery" })
+            }
+            menscloth.setOnClickListener { res ->
+                productAdapter.submitList(it.data?.filter { it.category == "men's clothing" })
             }
         }
+
+        viewModel.user.observe(viewLifecycleOwner, Observer {
+
+            when (it) {
+                is Resource.Success -> { //Resource file for errors and success
+                    //updateUI(it.data?.find { it.username }!!)
+                    //  binding.homeUserName.text = viewModel.getUsername
+                    it.data?.find { it.username == home_userName.text }
+                }
+                is Resource.Error -> {
+                    binding.textViewError.text = it.error?.localizedMessage
+                }
+            }
+        })
 
         binding.apply {
             val searchView = homeSearchView
             searchView.onQueryTextChange {
                 /**update search query*/
                 viewModel.searchQuery.value = it
-                //if (it.isNullOrBlank() ){
-                //    textViewError.text = "no search results found"
-                //  }
             }
         }
 
     }
 
+
+//    private fun updateUI(user: List<User>?) {
+//      user?.find { it.username == ""}
+//
+//    }
+
+
     override fun onItemClick(product: ProductEntity) {
         val action = HomeFragmentDirections.actionHomeFragmentToProductItemFragment(product)
         findNavController().navigate(action)
-        // viewModel.onSingleProductClicked(product)
+    }
+
+    override fun onAddToCartClicked(cartItem: ProductEntity) {
+        itemViewModel.addToCart()
     }
 
 
 }
+

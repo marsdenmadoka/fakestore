@@ -7,27 +7,27 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fakestore.R
+import com.fakestore.Room.CartEntity
+import com.fakestore.ViewModel.CartViewModel
 import com.fakestore.ViewModel.ProductViewModel
 import com.fakestore.databinding.CartItemsBinding
 import com.fakestore.ui.adapter.CartAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.observeOn
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CartItemsFragment : Fragment(R.layout.cart_items) {
-    private val viewModel: ProductViewModel by viewModels()
-//N/B we always collect a flow and for livedata we observe it
+class CartItemsFragment : Fragment(R.layout.cart_items),CartAdapter.OnItemClickListener {
+    private val viewModel: CartViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
         val binding = CartItemsBinding.bind(view)
-        val cartAdapter = CartAdapter()
+        val cartAdapter = CartAdapter(this) // al cartAdapter = CartAdapter()
 
 
         viewLifecycleOwner.lifecycleScope.launch {//collecting a flow 
-            viewModel.getcart.collect {
+            viewModel.getCart.collect {
                 val cart = it ?: return@collect
                 binding.apply {
                     cartRecycleView.apply {
@@ -41,8 +41,10 @@ class CartItemsFragment : Fragment(R.layout.cart_items) {
             }
         }
 
-
     }
 
+    override fun onRemoveFromCartClicked(cartItem: CartEntity) {
+      viewModel.deletecartItem(cartItem)
+    }
 
 }

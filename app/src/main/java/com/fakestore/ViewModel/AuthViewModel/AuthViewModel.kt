@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.fakestore.Network.Response.LoginResponse
+import com.fakestore.Network.Response.UserResponse
 import com.fakestore.Repository.AuthRepository.AuthRepository
 import com.fakestore.datastore.PreferenceDataStore
 import com.fakestore.util.Resource
@@ -39,10 +40,9 @@ class AuthViewModel @Inject constructor(
         _loginResponse.value = repository.login(username, password)
     }
 
-
     /**
      //consider using this over the above one
-    val loginUser: StateFlow<Resource<LoginResponse>> = flow {
+   private val loginUser: StateFlow<Resource<LoginResponse>> = flow {
         emit(repository.login(username, password))
     }.stateIn(
         scope = viewModelScope,
@@ -53,4 +53,22 @@ class AuthViewModel @Inject constructor(
     suspend fun saveAccessTokens(accessToken: String) {
         repository.saveAccessTokens(accessToken)
     }
+
+
+
+    /**SignUp*/
+    private val _signupResponse = MutableStateFlow<Resource<UserResponse>>(Resource.Loading())
+    val signupResponse  = _signupResponse.asStateFlow().asLiveData()
+
+    fun signUpUser(
+        email: String,
+        username: String,
+        password: String
+    ) = viewModelScope.launch {
+        _signupResponse.value = Resource.Loading()
+        _signupResponse .value = repository.SignUp(email,username,password)
+    }
+
+
+
 }

@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fakestore.Room.CartEntity
+import com.fakestore.Room.ProductEntity
 import com.fakestore.databinding.CartRowLayoutBinding
 
-class CartAdapter : ListAdapter<CartEntity, CartAdapter.CartViewHolder>(CartComparator()) {
+class CartAdapter (private val listener: CartAdapter.OnItemClickListener): ListAdapter<CartEntity, CartAdapter.CartViewHolder>(CartComparator()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
@@ -30,15 +31,24 @@ class CartAdapter : ListAdapter<CartEntity, CartAdapter.CartViewHolder>(CartComp
 
     inner class CartViewHolder(private val binding: CartRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(cart: CartEntity) {
 
+        init {
             binding.apply {
+                deleteProductButton.setOnClickListener {
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
+                        val cartItem = getItem(position)
+                        listener.onRemoveFromCartClicked(cartItem)
+                    }
+                }
+            }
+        }
 
+        fun bind(cart: CartEntity) {
+            binding.apply {
                 Glide.with(itemView)
                     .load(cart.image)
                     .into(cartProductImage)
-
-
                 cartNameTextView.text = cart.title
 
             }
@@ -46,6 +56,10 @@ class CartAdapter : ListAdapter<CartEntity, CartAdapter.CartViewHolder>(CartComp
 
     }
 
+
+    interface OnItemClickListener {
+      fun onRemoveFromCartClicked(cartItem: CartEntity)
+    }
 
     class CartComparator : DiffUtil.ItemCallback<CartEntity>() {
         override fun areItemsTheSame(oldItem: CartEntity, newItem: CartEntity) =

@@ -36,29 +36,12 @@ class ProductItemFragment : Fragment(R.layout.product_item) {
             cart_icon.setOnClickListener {
                 try {
                     viewModel.addToCart()
-                   // Resource.Success(it)
+                    // Resource.Success(it)
                     Snackbar.make(requireView(), "succesfull inserted", Snackbar.LENGTH_LONG).show()
-                }catch (throwable: Throwable){
+                } catch (throwable: Throwable) {
                     Resource.Error(throwable, it)
                 }
-
             }
         }
-
-
     }
-
-
-
 }
-
-
-//        val button = view.findViewById<Button>(R.id.button_confirm)
-//        button?.setOnClickListener {
-//        val username = view.findViewById<EditText>(R.id.edit_text_username).text.toString()
-//          val password = view.findViewById<EditText>(R.id.edit_text_pass).text.toString()
-//
-//            //this method is generated from the idea of the action/arguments we created in navgraph
-//            val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(username, password)
-//            findNavController().navigate(action)
-//        }

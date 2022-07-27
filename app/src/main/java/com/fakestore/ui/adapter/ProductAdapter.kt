@@ -38,13 +38,13 @@ class ProductAdapter(private val listener: OnItemClickListener) :
                     }
                 }
 
-//                homeAddToCart.setOnClickListener {
-//                    val position = adapterPosition
-//                    if (position != RecyclerView.NO_POSITION) {
-//                        val cartItem = getItem(position)
-//                        listener.onAddToCartClicked(cartItem)
-//                    }
-//                }
+                homeAddToCart.setOnClickListener {
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
+                        val cartItem = getItem(position)
+                        listener.onAddToCartClicked(cartItem)
+                    }
+                }
             }
         }
         fun bind(product: ProductEntity) {
@@ -64,7 +64,7 @@ class ProductAdapter(private val listener: OnItemClickListener) :
 
     interface OnItemClickListener {
         fun onItemClick(product: ProductEntity)
-        // fun onAddToCartClicked()
+        fun onAddToCartClicked(cartItem: ProductEntity)
     }
 
     class StoreComparator : DiffUtil.ItemCallback<ProductEntity>() {

@@ -3,9 +3,14 @@ package com.fakestore.ViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.fakestore.Network.Response.UserResponse
 import com.fakestore.Repository.ProductRepository
+import com.fakestore.Repository.UserRepository
+import com.fakestore.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,41 +20,28 @@ import javax.inject.Inject
 @HiltViewModel
 class ProductViewModel @Inject constructor(
     private val repository: ProductRepository,
-    //private val state: SavedStateHandle
+    private val userRepository: UserRepository,
 
-) : ViewModel() {
+    ) : ViewModel() {
 
     val searchQuery = repository.searchQuery
 
-    val products = repository.getProducts().asLiveData()
     /**we don't have to launch a coroutine to collect the flow.since we turned the flow into live data its already handled for us*/
-
+    val products = repository.getProducts().asLiveData()
 
     /**we can also decide to use flow and collect it our ui
-     * val products = repository.getProducts()
-    .stateIn(viewModelScope, SharingStarted.Lazily, null)*/
+     * val products = repository.getProducts().stateIn(viewModelScope, SharingStarted.Lazily, null)*/
 
-    fun getByElectronicsCategory() {
-        viewModelScope.launch { //this is wrong
-            products.observeForever {//your not supposed to observe in the view model
-                it.data?.filter { result ->
-                    result.category == "electronics"
-                }
-            }
-        }
+
+
+    /**getting user **/
+    private val _user = MutableStateFlow<Resource<List<UserResponse>>>(Resource.Loading())
+    val user = _user.asStateFlow().asLiveData()
+
+    fun getUser() = viewModelScope.launch {
+        _user.value = Resource.Loading()
+        _user.value = userRepository.getUser()
     }
-
-
-    val getcart =
-        repository.getCartItems() // To optimize and share a flow when multiple consumers collect at the same time, use the shareIn operator.
-            .stateIn(viewModelScope, SharingStarted.Lazily, null)
-
-
-//    fun onSingleProductClicked(product: ProductEntity)=viewModelScope.launch {
-//        val action = HomeFragmentDirections.actionHomeFragmentToProductItemFragment(product)
-//        findNavController(fragment = Fragment(R.layout.fragment_home)).navigate(action)
-//    }
-
 
 }
 

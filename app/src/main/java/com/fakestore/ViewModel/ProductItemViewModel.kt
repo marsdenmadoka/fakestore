@@ -44,16 +44,9 @@ class ProductItemViewModel @Inject constructor(
 
     fun addToCart(){/**adding our cartItems to our local db*/
         val newCart= CartEntity(title=productItemName,category=productItemCategory,image=productItemImage)
-
-        //**check if the cart exist
-
+        /**check if the cart exist*/
         viewModelScope.launch {
             repository.addToCart(newCart)
-
-//            if(newCart.id == newCart.id){
-//            }else{
-//                repository.addToCart(newCart)
-//            }
 
         }
     }

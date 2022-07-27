@@ -61,7 +61,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
         binding.loginButton.setOnClickListener {
-           // binding.loginProgressbar.visible(true)
             login()
         }
 

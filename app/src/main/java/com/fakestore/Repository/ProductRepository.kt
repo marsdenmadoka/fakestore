@@ -3,14 +3,13 @@ package com.fakestore.Repository
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asFlow
 import androidx.room.withTransaction
-import com.fakestore.Network.api.StoreApi
+import com.fakestore.Network.api.data.StoreApi
 import com.fakestore.Room.CartEntity
 import com.fakestore.Room.ProductDatabase
 import com.fakestore.util.networkBoundResource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class ProductRepository @Inject constructor(
@@ -23,21 +22,21 @@ class ProductRepository @Inject constructor(
 
 
     //val searchQuery = MutableStateFlow("")
-    val searchQuery = state.getLiveData("searchQuery","")/**we want to use the save state to restore/save our search*/
+    val searchQuery = state.getLiveData("searchQuery", "")
 
-    val productsFlow = searchQuery.asFlow().
-        flatMapLatest {
-            productDao.getAllProducts(it)
+    /**we want to use the save state to restore/save our search*/
+
+    val productsFlow = searchQuery.asFlow().flatMapLatest {
+        productDao.getAllProducts(it)
     }
 
     fun getProducts() = networkBoundResource(
         query = {
-            /**return list of products**//**fun getProducts(category: String) =**/
-            productsFlow    ///productDao.getAllProducts()
+            /**return list of products **/ //productDao.getAllProducts()
+            productsFlow
         },
         fetch = {
             /**fetch product from net**/
-
             delay(2000)
             // api.getProductsByCategory()
             api.getProducts()
@@ -54,19 +53,17 @@ class ProductRepository @Inject constructor(
 
     )
 
+    /**not a suspend function since we didn't call our getAllCart in our Dao as suspend it is also coming from a loca;db**/
+    fun getCartItems(): Flow<List<CartEntity>> = cartDao.getAllCartItems()
+
     /**saving our cartItems to our local database**/
     suspend fun addToCart(product: CartEntity) {
         cartDao.insertCartItems(product)
     }
-
-    /**not a suspend function since we didn't call our getAllCart in our Dao as suspend it is also coming from a loca;db**/
-    fun getCartItems(): Flow<List<CartEntity>> = cartDao.getAllCartItems()
+    /**remove cartItem*/
+    suspend fun deleteCartItem(cartItem: CartEntity){
+        cartDao.delete(cartItem)
+    }
 
 }
-    
 
-
-//    val _SelectedCategory = MutableStateFlow("All")
-//   fun setCategory(value: String){
-//       _SelectedCategory.value=value
-//   }

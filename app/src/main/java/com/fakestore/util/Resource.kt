@@ -1,6 +1,5 @@
 package com.fakestore.util
 
-import okhttp3.ResponseBody
 
 //a generic class that contains data and status about loading this data
 sealed class Resource<T>(
@@ -15,14 +14,3 @@ sealed class Resource<T>(
 
 
 }
-
-
-//sealed class Resource<out T> {
-//    data class Success<out T>(val value: T) : Resource<T>()
-//    data class Error(
-//        val isNetworkError: Boolean,
-//        val errorCode: Int?,
-//        val errorBody: ResponseBody?
-//    ) : Resource<Nothing>()
-//    object Loading : Resource<Nothing>()
-//}

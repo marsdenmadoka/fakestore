@@ -17,5 +17,5 @@ interface CartDao {
 
     //deleting cart item
     @Delete
-    suspend fun delete(product: CartEntity)
+    suspend fun delete(cartItem: CartEntity)
 }
