@@ -42,8 +42,21 @@ class ProductItemViewModel @Inject constructor(
             state.set("productItemImage",value)
         }
 
+
+    var productItemPrice = state.get<String>("productItemPrice") ?:product?.price?:""
+        set(value) {
+            field=value
+            state.set("productItemPrice",value)
+        }
+
+    var productItemDescription = state.get<String>("productItemDescription") ?:product?.description?:""
+        set(value) {
+            field=value
+            state.set("productItemDescription",value)
+        }
+
     fun addToCart(){/**adding our cartItems to our local db*/
-        val newCart= CartEntity(title=productItemName,category=productItemCategory,image=productItemImage)
+        val newCart= CartEntity(title=productItemName,category=productItemCategory,image=productItemImage,price= productItemPrice as Double)
         /**check if the cart exist*/
         viewModelScope.launch {
             repository.addToCart(newCart)

@@ -49,7 +49,11 @@ class CartAdapter (private val listener: CartAdapter.OnItemClickListener): ListA
                 Glide.with(itemView)
                     .load(cart.image)
                     .into(cartProductImage)
+
                 cartNameTextView.text = cart.title
+                productPriceTextView.text = cart.price.toString()
+
+
 
             }
         }

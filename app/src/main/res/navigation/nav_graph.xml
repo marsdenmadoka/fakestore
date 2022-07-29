@@ -39,4 +39,9 @@
         android:name="com.fakestore.ui.CartItemsFragment"
         android:label="cart_items"
         tools:layout="@layout/cart_items" />
+    <fragment
+        android:id="@+id/favoriteItemsFragment"
+        android:name="com.fakestore.ui.FavoriteItemsFragment"
+        android:label="favourite_items"
+        tools:layout="@layout/favourite_items" />
 </navigation>

@@ -43,7 +43,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                 }
             }
         }
-        viewModel.products.observe(viewLifecycleOwner) {
+        viewModel.products.observe(viewLifecycleOwner) { it ->
             home()
             productAdapter.submitList(it.data)
             AllCategories.isChecked = true
@@ -72,8 +72,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
             }
             /** not the right to do this fetch categories from view model*/
             electronicsCategory.setOnClickListener { res ->
-                //viewModel.getByElectronicsCategory()
-                productAdapter.submitList(it.data?.filter { it.category == "electronics" })
+                //viewModel.getElectronics()
+              productAdapter.submitList(it.data?.filter { it.category == "electronics" })
             }
             jewelery.setOnClickListener { res ->
                 productAdapter.submitList(it.data?.filter { it.category == "jewelery" })
@@ -89,7 +89,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
                 is Resource.Success -> { //Resource file for errors and success
                     //updateUI(it.data?.find { it.username }!!)
                     //  binding.homeUserName.text = viewModel.getUsername
-                    it.data?.find { it.username == home_userName.text }
+                   // it.data?.find { it.username == home_userName.text }
                 }
                 is Resource.Error -> {
                     binding.textViewError.text = it.error?.localizedMessage
@@ -107,20 +107,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnItemClic
 
     }
 
-
-//    private fun updateUI(user: List<User>?) {
-//      user?.find { it.username == ""}
-//
-//    }
-
-
     override fun onItemClick(product: ProductEntity) {
         val action = HomeFragmentDirections.actionHomeFragmentToProductItemFragment(product)
         findNavController().navigate(action)
     }
 
     override fun onAddToCartClicked(cartItem: ProductEntity) {
-        itemViewModel.addToCart()
+        //itemViewModel.addToCart()
     }
 
 

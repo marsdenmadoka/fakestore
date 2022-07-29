@@ -11,6 +11,7 @@ import com.fakestore.databinding.ProductItemBinding
 import com.fakestore.util.Resource
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.cart_items.*
 import kotlinx.android.synthetic.main.product_item.*
 
 @AndroidEntryPoint
@@ -31,13 +32,16 @@ class ProductItemFragment : Fragment(R.layout.product_item) {
 
             product_item_title.text = viewModel.productItemName
             product_item_category.text = viewModel.productItemCategory
+            product_item_description.text = viewModel.productItemDescription
+            product_item_price.text = "$" + viewModel.productItemPrice.toString()
+
 
 
             cart_icon.setOnClickListener {
                 try {
                     viewModel.addToCart()
                     // Resource.Success(it)
-                    Snackbar.make(requireView(), "succesfull inserted", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(requireView(), "successful added to cart!", Snackbar.LENGTH_LONG).show()
                 } catch (throwable: Throwable) {
                     Resource.Error(throwable, it)
                 }

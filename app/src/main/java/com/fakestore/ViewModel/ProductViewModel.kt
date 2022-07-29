@@ -8,10 +8,7 @@ import com.fakestore.Repository.ProductRepository
 import com.fakestore.Repository.UserRepository
 import com.fakestore.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -30,27 +27,45 @@ class ProductViewModel @Inject constructor(
     val products = repository.getProducts().asLiveData()
 
     /**we can also decide to use flow and collect it our ui
-     * val products = repository.getProducts().stateIn(viewModelScope, SharingStarted.Lazily, null)*/
+     val products = repository.getProducts().stateIn(viewModelScope, SharingStarted.Lazily, null)*/
 
 
-
-    /**getting user **/
+    /**getting user **//**NOT WORKING*/
     private val _user = MutableStateFlow<Resource<List<UserResponse>>>(Resource.Loading())
     val user = _user.asStateFlow().asLiveData()
-
     fun getUser() = viewModelScope.launch {
         _user.value = Resource.Loading()
         _user.value = userRepository.getUser()
     }
 
+
+    /**getting items of electronics category*//**NOT WORKING*/
+    fun getElectronics (){
+        viewModelScope.launch {
+            products.value?.data?.filter { it.category == "electronics" }
+        }
+    }
+
+
+
 }
 
 
-//suspend fun getElectronic() {
-//    repository.getProducts().collectLatest { result ->
-//        result.data?.filter { it.category == "electronics" }
+
+
+
+
+//    fun getElectronic (){
+//        viewModelScope.launch {
+//            repository.getProducts().
+//            collectLatest {
+//                it.data?.filter {
+//                    it.category == "electronics" }
+//            }
+//        }
 //    }
-//}
+
+
 //
 //
 //fun getElectronics() {

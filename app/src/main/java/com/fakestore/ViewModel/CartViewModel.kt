@@ -24,13 +24,16 @@ class CartViewModel @Inject constructor(
 
 
     /**delete cart item*/
-
     fun deletecartItem(cartItem: CartEntity) {
         viewModelScope.launch {
             repository.deleteCartItem(cartItem)
-
         }
     }
+
+
+
+
+}
 
 
 //    fun deletecartItem (cartItem:CartEntity) =
@@ -38,8 +41,4 @@ class CartViewModel @Inject constructor(
 //            repository.deleteCartItem(cartItem)
 //
 //        }
-
-
-}
-
 
