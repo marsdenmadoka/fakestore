@@ -39,13 +39,16 @@ class ProductViewModel @Inject constructor(
     }
 
 
+
+
+
+
     /**getting items of electronics category*//**NOT WORKING*/
     fun getElectronics (){
         viewModelScope.launch {
             products.value?.data?.filter { it.category == "electronics" }
         }
     }
-
 
 
 }

@@ -33,12 +33,25 @@ class CartViewModel @Inject constructor(
 
 
 
+/** NOT WORKING
+    fun getCartItemsPriceTotal(): Double {
+        var totalPrice = 0.0
+        getCart.value?.forEach { (itemId, price) ->
+            totalPrice += price * (getCart.value!!.find { it.id ==itemId }?:1)
+        }
+
+        return totalPrice
+    }
+
+
+    fun getCartItemsCount(): Int {
+        var totalCount = 0
+       getCart.value?.forEach {
+           totalCount += it.id
+       }
+        return totalCount
+    }*/
+
+
+
 }
-
-
-//    fun deletecartItem (cartItem:CartEntity) =
-//        viewModelScope.launch {
-//            repository.deleteCartItem(cartItem)
-//
-//        }
-
