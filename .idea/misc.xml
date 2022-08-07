@@ -22,6 +22,7 @@
         <entry key="app/src/main/res/drawable/ic_favorite.xml" value="0.2015" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.2015" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.116" />
         <entry key="app/src/main/res/drawable/ic_person24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_shoppping_cart.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round.xml" value="0.132" />
@@ -41,9 +42,9 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/home_list_item_layout.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/home_list_item_layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_circular_loader.xml" value="0.15818725951261223" />
-        <entry key="app/src/main/res/layout/layout_home_top_app_bar.xml" value="0.15818725951261223" />
+        <entry key="app/src/main/res/layout/layout_home_top_app_bar.xml" value="0.25" />
         <entry key="app/src/main/res/layout/list_item_photo.xml" value="0.18" />
         <entry key="app/src/main/res/layout/product_item.xml" value="0.20078740157480315" />
         <entry key="app/src/main/res/layout/products_list_item.xml" value="0.33" />

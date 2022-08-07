@@ -9,21 +9,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.fakestore.R
 import com.fakestore.Room.CartEntity
 import com.fakestore.ViewModel.CartViewModel
-import com.fakestore.ViewModel.ProductViewModel
 import com.fakestore.databinding.CartItemsBinding
 import com.fakestore.ui.adapter.CartAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CartItemsFragment : Fragment(R.layout.cart_items),CartAdapter.OnItemClickListener {
+class CartItemsFragment : Fragment(R.layout.cart_items), CartAdapter.OnItemClickListener {
     private val viewModel: CartViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
         val binding = CartItemsBinding.bind(view)
-        val cartAdapter = CartAdapter(this) // al cartAdapter = CartAdapter()
+        val cartAdapter = CartAdapter(this) // val cartAdapter = CartAdapter()
 
 
         viewLifecycleOwner.lifecycleScope.launch {//collecting a flow 
@@ -38,13 +37,17 @@ class CartItemsFragment : Fragment(R.layout.cart_items),CartAdapter.OnItemClickL
                 }
                 cartAdapter.submitList(cart)
                 // cartviewNoCart.isvisible=cart.isEmpty()
+                binding.orderTotalTxtView.text = it.sumOf { it.price!! }.toString()
             }
+
+
         }
+
 
     }
 
     override fun onRemoveFromCartClicked(cartItem: CartEntity) {
-      viewModel.deletecartItem(cartItem)
+        viewModel.deletecartItem(cartItem)
     }
 
 }

@@ -17,7 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="20dp">
+        android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/product_image"
@@ -63,7 +63,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:paddingTop="16dp"
+            android:paddingTop="6dp"
+            android:textStyle="italic"
             android:paddingBottom="1dp"
             android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,11 +78,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:paddingTop="16dp"
+            android:paddingTop="6dp"
             android:paddingBottom="1dp"
             android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/product_category"
             tools:text="500" />
 

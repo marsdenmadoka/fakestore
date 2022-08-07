@@ -16,11 +16,11 @@ interface AuthApi {
 
 
     @FormUrlEncoded
-    @POST("users")
+    @POST("")
     suspend fun signUp(
+        @Field("email") email: String,
         @Field("username") username: String,
         @Field("password") password: String,
-        @Field("email") email: String
     ): UserResponse
 
 

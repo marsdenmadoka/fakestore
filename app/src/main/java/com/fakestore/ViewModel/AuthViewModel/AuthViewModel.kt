@@ -27,11 +27,8 @@ class AuthViewModel @Inject constructor(
     val loginResponse: LiveData<Resource<LoginResponse>>
     get() = _loginResponse**/
 
-
     private val _loginResponse = MutableStateFlow<Resource<LoginResponse>>(Resource.Loading())
     val loginResponse = _loginResponse.asStateFlow().asLiveData()
-
-
     fun loginUser(
         username: String,
         password: String
@@ -53,9 +50,6 @@ class AuthViewModel @Inject constructor(
     suspend fun saveAccessTokens(accessToken: String) {
         repository.saveAccessTokens(accessToken)
     }
-
-
-
     /**SignUp*/
     private val _signupResponse = MutableStateFlow<Resource<UserResponse>>(Resource.Loading())
     val signupResponse  = _signupResponse.asStateFlow().asLiveData()

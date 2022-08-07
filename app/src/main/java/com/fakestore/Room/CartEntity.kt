@@ -9,8 +9,8 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class CartEntity(
     @PrimaryKey(autoGenerate = true)  val id: Int=0,
-    val title: String,
-    val price: Double,
-    val category: String,
-    val image: String
+    val title: String ?,
+    val price: Double ?,
+    val category: String ?,
+    val image: String ?
 ): Parcelable

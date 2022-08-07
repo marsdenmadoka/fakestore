@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.fakestore.R
+import com.fakestore.Room.CartEntity
 import com.fakestore.ViewModel.ProductItemViewModel
 import com.fakestore.databinding.ProductItemBinding
 import com.fakestore.util.Resource

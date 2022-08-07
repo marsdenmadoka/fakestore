@@ -53,10 +53,13 @@
                 android:id="@+id/product_item_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="4dp"
                 tools:text="50"
                 android:textStyle="bold"
-                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:padding="5dp"
+                app:layout_constraintStart_toEndOf="@id/product_item_image"
                 app:layout_constraintBottom_toBottomOf="@id/product_item_image"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -67,6 +70,7 @@
                 android:gravity="center_horizontal"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
+
                 android:text="anything i wanta to have"
                 android:textStyle="italic|bold"
                 android:textAppearance="?attr/textAppearanceListItem"

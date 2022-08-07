@@ -7,16 +7,16 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".ui.Home.HomeActivity">
 
-<androidx.fragment.app.FragmentContainerView
-    android:id="@+id/nav_host_fragment"
-    android:name="androidx.navigation.fragment.NavHostFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_above="@id/bottom_nav"
-    app:defaultNavHost="true"
-    app:navGraph="@navigation/nav_graph"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_nav"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
 
-    />
+        />
 <!--        associate the navHost with the NavGraph-->
 <com.google.android.material.bottomnavigation.BottomNavigationView
     android:layout_width="match_parent"

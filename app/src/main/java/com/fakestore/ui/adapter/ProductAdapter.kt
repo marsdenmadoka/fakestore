@@ -54,9 +54,9 @@ class ProductAdapter(private val listener: OnItemClickListener) :
                     .load(product.image)
                     .into(productImage)
 
-                // productPrice.text = store.price.toString()
                 productCategory.text = product.category
                 productTitle.text = product.title
+                priceView.text = "$ ${product.price.toString()}"
                 //productDescription.text = store.description
             }
         }

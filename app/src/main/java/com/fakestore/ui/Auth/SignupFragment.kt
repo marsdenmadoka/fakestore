@@ -16,8 +16,10 @@ import com.fakestore.ui.Home.HomeActivity
 import com.fakestore.util.Resource
 import com.fakestore.util.enable
 import com.fakestore.util.startNewActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SignupFragment : Fragment(R.layout.fragment_signup) {
 
     private lateinit var binding: FragmentSignupBinding
@@ -47,22 +49,29 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
 
 
         /**when enabling and disabling our button when we write text in our text field*/
-        binding.SignUpEmail.addTextChangedListener {
-            val username = binding.SignUpUsername.text.toString().trim()
-            val password = binding.SignUpPassword.text.toString().trim()
-
-            binding.SignUpButton.enable(username.isNotEmpty()
-                    && password.isNotEmpty()
-                    && it.toString().isNotEmpty())//using the extension function enable
-        }
+//        binding.SignUpEmail.addTextChangedListener {
+//            val username = binding.SignUpUsername.text.toString().trim()
+//            val password = binding.SignUpPassword.text.toString().trim()
+//
+//            binding.SignUpButton.enable(username.isNotEmpty()
+//                    && password.isNotEmpty()
+//                    && it.toString().isNotEmpty())//using the extension function enable
+//        }
 
         binding.SignUpButton.setOnClickListener {
-            signUp()
+            //signUp()
+            Toast.makeText(
+                context,
+                "This API does not provide an endpoint for registering, just login with the credentials provided in the README file",
+                Toast.LENGTH_LONG
+            ).show()
+
         }
 
         binding.LoginText.setOnClickListener {
             val action = SignupFragmentDirections.actionSignupFragmentToLoginFragment()
             findNavController().navigate(action)
+
         }
     }
 

@@ -25,12 +25,12 @@ class ProductViewModel @Inject constructor(
 
     /**we don't have to launch a coroutine to collect the flow.since we turned the flow into live data its already handled for us*/
     val products = repository.getProducts().asLiveData()
-
     /**we can also decide to use flow and collect it our ui
-     val products = repository.getProducts().stateIn(viewModelScope, SharingStarted.Lazily, null)*/
+    val products = repository.getProducts().stateIn(viewModelScope, SharingStarted.Lazily, null)*/
 
 
-    /**getting user **//**NOT WORKING*/
+    /**getting user **/
+    /**NOT WORKING*/
     private val _user = MutableStateFlow<Resource<List<UserResponse>>>(Resource.Loading())
     val user = _user.asStateFlow().asLiveData()
     fun getUser() = viewModelScope.launch {
@@ -39,16 +39,16 @@ class ProductViewModel @Inject constructor(
     }
 
 
-
-
-
-
-    /**getting items of electronics category*//**NOT WORKING*/
-    fun getElectronics (){
+    /**getting items of electronics category*/
+    /**NOT WORKING*/
+   val getElectonics =
         viewModelScope.launch {
             products.value?.data?.filter { it.category == "electronics" }
-        }
     }
+
+//    var getTotal = viewModelScope.launch {
+//        products.value?.data?.sumByDouble { it.price }
+//    }
 
 
 }
@@ -58,15 +58,22 @@ class ProductViewModel @Inject constructor(
 
 
 
-//    fun getElectronic (){
-//        viewModelScope.launch {
-//            repository.getProducts().
-//            collectLatest {
-//                it.data?.filter {
-//                    it.category == "electronics" }
-//            }
+
+
+
+//fun getElectronic (){
+//    viewModelScope.launch {
+//        repository.getProducts().
+//        collectLatest {
+//            it.data?.filter {
+//                it.category == "electronics" }
 //        }
 //    }
+//}
+
+
+
+
 
 
 //

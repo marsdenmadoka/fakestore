@@ -4,8 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fakestore.Repository.ProductRepository
 import com.fakestore.Room.CartEntity
+import com.fakestore.Room.ProductEntity
+import com.fakestore.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -31,15 +35,21 @@ class CartViewModel @Inject constructor(
     }
 
 
+    /**adding item to cart */
+    fun insertCartItem(cartItem: CartEntity) = viewModelScope.launch {
+        repository.addToCart(cartItem)
+    }
 
+ val getTotal = viewModelScope.launch{
+        getCart.value?.sumOf { it.price!! }
+    }
 
-/** NOT WORKING
+    /**
     fun getCartItemsPriceTotal(): Double {
         var totalPrice = 0.0
         getCart.value?.forEach { (itemId, price) ->
             totalPrice += price * (getCart.value!!.find { it.id ==itemId }?:1)
         }
-
         return totalPrice
     }
 
@@ -52,6 +62,8 @@ class CartViewModel @Inject constructor(
         return totalCount
     }*/
 
-
-
 }
+
+
+
+

@@ -41,6 +41,7 @@ class CartAdapter (private val listener: CartAdapter.OnItemClickListener): ListA
                         listener.onRemoveFromCartClicked(cartItem)
                     }
                 }
+
             }
         }
 

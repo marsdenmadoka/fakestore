@@ -1,11 +1,14 @@
 package com.fakestore.ViewModel
 
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fakestore.Repository.ProductRepository
 import com.fakestore.Room.CartEntity
 import com.fakestore.Room.ProductEntity
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -55,9 +58,13 @@ class ProductItemViewModel @Inject constructor(
             state.set("productItemDescription",value)
         }
 
-    fun addToCart(){/**adding our cartItems to our local db*/
+    fun addToCart(){/**adding our cartItems to our local db*//*this one is different from te one in our cartView model since here we use savedStateHandle to get the items passed to ProductItemViewFragment */
         val newCart= CartEntity(title=productItemName,category=productItemCategory,image=productItemImage,price= productItemPrice as Double)
         /**check if the cart exist*/
+//        if(newCart.id == cartEntity.id ){
+//            //toast item already added to cart
+//        return;
+//        }
         viewModelScope.launch {
             repository.addToCart(newCart)
 
