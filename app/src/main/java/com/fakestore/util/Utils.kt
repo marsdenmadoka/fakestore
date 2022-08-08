@@ -3,6 +3,7 @@ package com.fakestore.util
 import android.app.Activity
 import android.content.Intent
 import android.view.View
+import android.widget.Spinner
 import androidx.appcompat.widget.SearchView
 
 /**EXTENSION FUNCTIONS**/
@@ -40,6 +41,9 @@ fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {
     }
 }
 
+// fun Spinner.setItemSelectedListener(itemSelectedListener: ItemSelectedListener?) {
+//    setSpinnerItemSelectedListener(itemSelectedListener)
+//}
 /**exhaustive*/
 val <T> T.exhaustive: T
     get() = this

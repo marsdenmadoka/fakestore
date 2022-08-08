@@ -2,6 +2,7 @@ package com.fakestore.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.fakestore.Room.CartEntity
 import com.fakestore.Room.ProductEntity
 import com.fakestore.databinding.CartRowLayoutBinding
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 class CartAdapter (private val listener: CartAdapter.OnItemClickListener): ListAdapter<CartEntity, CartAdapter.CartViewHolder>(CartComparator()) {
 
@@ -42,9 +44,10 @@ class CartAdapter (private val listener: CartAdapter.OnItemClickListener): ListA
                     }
                 }
 
+
+
             }
         }
-
         fun bind(cart: CartEntity) {
             binding.apply {
                 Glide.with(itemView)
