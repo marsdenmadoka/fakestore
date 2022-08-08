@@ -2,9 +2,9 @@
 
 This API does not provide an endpoint for registering, 
 just login with the credentials provided in the README file",
-##login Details
-####Username: mor_2314
-####password: 83r5^_
+## login Details
+#### Username: mor_2314
+#### password: 83r5^_
 
 
 ## Screenshoots
