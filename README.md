@@ -10,10 +10,10 @@ just login with the credentials provided in the README file",
 ## Screenshoots
 These are the app's screenshots:
 
-<img src="screenshoots/home.png" width="250/> <img src="screenshoots/homes.png" width="250/>
-<img src="screenshoots/productItem.png" width="250/> <img src="screenshoots/cart.png" width="250/>
+<img src="screenshoots/home.png" width= 250/> <img src="screenshoots/homes.png" width=250/>
+<img src="screenshoots/productItem.png" width=250/> <img src="screenshoots/cart.png" width=250/>
 
 
 ## Demo
-<img src="demo/gif.gif" width="250/>
+<img src="demo/gif.gif" width=250/>
  
