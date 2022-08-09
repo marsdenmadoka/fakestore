@@ -12,6 +12,7 @@ import com.fakestore.ViewModel.CartViewModel
 import com.fakestore.databinding.CartItemsBinding
 import com.fakestore.ui.adapter.CartAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -26,7 +27,9 @@ class CartItemsFragment : Fragment(R.layout.cart_items), CartAdapter.OnItemClick
 
 
         viewLifecycleOwner.lifecycleScope.launch {//collecting a flow 
-            viewModel.getCart.collect {
+            viewModel.
+
+            getCart.collect {
                 val cart = it ?: return@collect
                 binding.apply {
                     cartRecycleView.apply {
@@ -36,13 +39,18 @@ class CartItemsFragment : Fragment(R.layout.cart_items), CartAdapter.OnItemClick
                     }
                 }
                 cartAdapter.submitList(cart)
-                // cartviewNoCart.isvisible=cart.isEmpty()
-                binding.orderTotalTxtView.text = it.sumOf { it.price!! }.toString()
+
+              //binding.orderTotalTxtView.text = it.sumOf { it.price!! }.toString()
             }
 
 
         }
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.getTotal.collect{
+                binding.orderTotalTxtView.text = (it ?: return@collect).toString()
+            }
+        }
 
     }
 

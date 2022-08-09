@@ -7,10 +7,7 @@ import com.fakestore.Room.CartEntity
 import com.fakestore.Room.ProductEntity
 import com.fakestore.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,9 +16,6 @@ class CartViewModel @Inject constructor(
     private val repository: ProductRepository,
 ) : ViewModel() {
 
-
-    /**we can also decide to use flow and collect it our ui
-     * val products = repository.getProducts().stateIn(viewModelScope, SharingStarted.Lazily, null)*/
     val getCart =
         repository.getCartItems() // To optimize and share a flow when multiple consumers collect at the same time, use the shareIn operator.
             .stateIn(viewModelScope, SharingStarted.Lazily, null)
@@ -40,9 +34,11 @@ class CartViewModel @Inject constructor(
         repository.addToCart(cartItem)
     }
 
- val getTotal = viewModelScope.launch{
-        getCart.value?.sumOf { it.price!! }
-    }
+// val getTotal = getCart.value?.sumOf { it.price!! }
+
+    val getTotal = repository.getCartItems().map { it.sumOf { it.price!! } }
+
+
 
     /**
     fun getCartItemsPriceTotal(): Double {
