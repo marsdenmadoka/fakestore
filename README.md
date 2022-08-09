@@ -23,7 +23,7 @@ These are the app's screenshots:
 
 
 ## Demo
-<img src="demo/gif.gif" width=250 height=400  />
+<img src="demo/gif.gif" width=400 height=700 />
  
  
  
