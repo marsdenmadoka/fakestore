@@ -29,14 +29,14 @@ These are the app's screenshots:
  
  This app uses the MVVM Architecture 
  
- <img src="MVVM Architecture.png" width=300/>
+ <img src="screenshoots/MVVM Architecture.png" width=350/>
  
  
  ##Tech Stack
  
- - [flow]
- - [livedata]
- - [recycleview]
+ - [flow](https://developer.android.com/kotlin/flow)
+ - [livedata](https://developer.android.com/topic/libraries/architecture/livedata)
+ - [recycleview](https://developer.android.com/guide/topics/ui/layout/recyclerview?gclid=CjwKCAjwi8iXBhBeEiwAKbUofS6ZKVc5_ChXbW5daa1KUuqSc9jI5e_xI73tLv9SgSvWjGlsU-1CgxoCuYgQAvD_BwE&gclsrc=aw.ds)
  - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
  
  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) -The ViewModel class is designed to store and manage UI-related data in a lifecycle conscious way.
