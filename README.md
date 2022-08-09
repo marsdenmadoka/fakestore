@@ -2,7 +2,7 @@
 # FakeStore
 A fake shopping app built using the MVVM archirecture consuming  [FAKE STORE API](https://fakestoreapi.com/)
 
-##N/B
+## N/B
 This API does not provide an endpoint for registering users 
 just login with the credentials provided in the README file",
 
@@ -10,9 +10,9 @@ just login with the credentials provided in the README file",
 #### Username: mor_2314
 #### password: 83r5^_
 
-##anyone is free to make any contributions to the begginer project
+#### anyone is free to make any contributions to this project
 
-Note that this is a begginers project/learner, some functionality might have not be well impelemted in a professional way you are allowed to make any changes and create a PR.
+#### Note that this is a begginers project/learner, some functionality might have not be well impelemted in a professional way you are allowed to make any changes and create a PR.
 
 
 ## Screenshoots
@@ -29,7 +29,7 @@ These are the app's screenshots:
  
  This app uses the MVVM Architecture 
  
- <img src="screenshoots/MVVM Architecture.png" width=350/>
+ <img src="screenshoots/MVVM Architecture.png" width=400/>
  
  
  ##Tech Stack
