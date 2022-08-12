@@ -27,13 +27,13 @@ class AuthViewModel @Inject constructor(
     val loginResponse: LiveData<Resource<LoginResponse>>
     get() = _loginResponse**/
 
-    private val _loginResponse = MutableStateFlow<Resource<LoginResponse>>(Resource.Loading())
+    private val _loginResponse = MutableStateFlow<Resource<LoginResponse>>(Resource.Loading(null))
     val loginResponse = _loginResponse.asStateFlow().asLiveData()
     fun loginUser(
         username: String,
         password: String
     ) = viewModelScope.launch {
-        _loginResponse.value = Resource.Loading()
+        _loginResponse.value = Resource.Loading(null)
         _loginResponse.value = repository.login(username, password)
     }
 

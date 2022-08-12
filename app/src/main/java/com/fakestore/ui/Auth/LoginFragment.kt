@@ -3,6 +3,7 @@ package com.fakestore.ui.Auth
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -30,22 +31,24 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
-//
           binding.loginProgressbar.visible(false)
-//        binding.loginButton.enable(false)
+//  binding.loginButton.enable(false)
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
-//           binding.loginProgressbar.visible(it is Resource.Loading)
-//            binding.loginProgressbar.visible(false)
+        // binding.loginProgressbar.visible(it is Resource.Loading)
+
+        //binding.loginProgressbar.visible(false)
             when (it) {
                 is Resource.Success -> {
                     lifecycleScope.launch {
                         viewModel.saveAccessTokens(it.data?.token!!)
                         requireActivity().startNewActivity(HomeActivity::class.java)//from our ext func
+                        binding.loginProgressbar.isVisible = false
                     }
-                    Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+                    //Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
                 }
                 is Resource.Error -> {
+                    binding.loginProgressbar.isVisible = false
                     Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_SHORT).show()
                 }
             }

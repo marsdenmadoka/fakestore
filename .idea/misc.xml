@@ -36,10 +36,12 @@
         <entry key="app/src/main/res/layout/cart_items.xml" value="0.18" />
         <entry key="app/src/main/res/layout/cart_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/cart_row_layout.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/constraint.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/constraints.xml" value="0.25" />
         <entry key="app/src/main/res/layout/favourite_item_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/favourite_items.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home_list_item_layout.xml" value="0.33" />
